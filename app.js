@@ -103,8 +103,8 @@ function initTrackRecordChart() {
         },
         tooltip: {
           backgroundColor: '#0f172a',
-          titleFont: { family: 'Inter', size: 13, weight: 'bold' },
-          bodyFont: { family: 'JetBrains Mono', size: 12 },
+          titleFont: { family: 'Plus Jakarta Sans', size: 13, weight: '700' },
+          bodyFont: { family: 'Plus Jakarta Sans', size: 12, weight: '600' },
           padding: 12,
           cornerRadius: 8,
           callbacks: {
@@ -122,7 +122,7 @@ function initTrackRecordChart() {
             display: false
           },
           ticks: {
-            font: { family: 'Inter', size: 11 },
+            font: { family: 'Plus Jakarta Sans', size: 11, weight: '500' },
             color: '#64748b'
           }
         },
@@ -131,7 +131,7 @@ function initTrackRecordChart() {
             color: '#f1f5f9'
           },
           ticks: {
-            font: { family: 'JetBrains Mono', size: 11 },
+            font: { family: 'Plus Jakarta Sans', size: 11, weight: '600' },
             color: '#64748b',
             callback: function(value) {
               return (value > 0 ? '+' : '') + value + '%';
