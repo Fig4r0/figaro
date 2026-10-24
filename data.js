@@ -3,11 +3,15 @@
  */
 
 const INVESTOR_DATA = {
-  // 1. Datos Personales y de Marca
+  // 1. Datos Personales y Perfil Académico / Profesional
   profile: {
     name: "Jaime Danús",
-    role: "Inversor Particular & Analista Fundamental",
-    tagline: "Análisis fundamental de renta variable, asignación disciplinada de capital y seguimiento público de cartera.",
+    role: "Estudiante de Economía (Bilingüe) | Inversor Fundamental",
+    tagline: "Apasionado por el Value Investing, el análisis fundamental riguroso y la asignación eficiente de capital.",
+    education: "Grado en Economía (Itinerario Bilingüe) — Universidad de Cantabria",
+    languages: "Inglés C1 Certificado (Aptis ESOL) · Español Nativo",
+    discipline: "Surf, Brazilian Jiu-Jitsu (BJJ) y Tenis · Hábitos de alto rendimiento",
+    careerGoal: "Buy-Side Equity Research & Value Investing",
     focus: "Mid/Small-caps europeas e internacionales, situaciones especiales, fosos económicos y desajustes de valoración.",
     linkedin: "https://www.linkedin.com/in/jaime-danus-bontempini"
   },

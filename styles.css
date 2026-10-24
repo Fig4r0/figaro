@@ -417,10 +417,19 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  flex-shrink: 0;
+}
+
+.author-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .author-avatar-fallback {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-weight: 700;
   color: var(--primary);
   font-size: 1.2rem;
@@ -1425,9 +1434,251 @@ body {
 }
 
 /* ==========================================================================
+   SECCIÓN SOBRE MÍ (PERFIL, CREDENCIALES & VOCACIÓN)
+   ========================================================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 36px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.about-card-left {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.about-photo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.about-photo-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.about-photo-badge .badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+}
+
+.about-identity-meta {
+  margin-top: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.about-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.about-headline {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.about-subheadline {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.about-credentials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.about-cred-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.about-cred-item .cred-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(30, 64, 175, 0.15);
+}
+
+.about-cred-item .cred-text strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.about-cred-item .cred-text span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.btn-block-linkedin {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  margin-top: 6px;
+}
+
+.about-content-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.about-block:hover {
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-md);
+}
+
+.about-block-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.about-block-num {
+  font-size: 0.75rem;
+  font-family: var(--font-num);
+  font-weight: 800;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  border: 1px solid rgba(30, 64, 175, 0.15);
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.about-block p {
+  font-size: 0.93rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.about-block p:last-child {
+  margin-bottom: 0;
+}
+
+.about-quote-card {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.04) 0%, rgba(14, 165, 233, 0.04) 100%);
+  border-left: 4px solid var(--primary);
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 24px 28px 20px 28px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.about-quote-card .quote-symbol {
+  position: absolute;
+  top: 6px;
+  left: 18px;
+  font-size: 3.8rem;
+  line-height: 1;
+  color: rgba(30, 64, 175, 0.12);
+  font-family: Georgia, serif;
+  pointer-events: none;
+  user-select: none;
+}
+
+.about-quote-card .quote-text {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.about-quote-card .quote-author {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (TABLETS & MÓVILES)
    ========================================================================== */
 @media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero-container {
     grid-template-columns: 1fr;
     gap: 48px;
