@@ -14,6 +14,7 @@ const INVESTOR_DATA = {
 
   // 2. Track Record Real (Auditado en Rankia / MyPortfolio — Octubre 2026)
   trackRecord: {
+    rankiaPublicUrl: "https://myportfolio.rankia.com/portfolios/public/64ae6d6b-8717-4959-add8-2eddeb9287eb",
     stats: {
       period: "2 oct 2026 – 24 oct 2026",
       alpha: "+1,40%", // +140 bps
