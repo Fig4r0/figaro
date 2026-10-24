@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Marca Personal | Inversor & Analista Fundamental</title>
+  <meta name="description" content="Tesis de inversión fundamental, análisis de empresas y track record auditado.">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Chart.js para visualización de Track Record -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Estilos principales -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navegación Superior -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="nav-logo">
+        <span class="logo-badge">INV</span>
+        <span class="logo-name" id="nav-author-name">Tu Nombre</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#filosofia">Filosofía</a>
+        <a href="#track-record">Track Record</a>
+        <a href="#tesis">Tesis de Inversión</a>
+        <a href="#contacto" class="btn btn-outline-sm">Contacto</a>
+      </nav>
+
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menú Móvil -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <a href="#filosofia" class="mobile-link">Filosofía</a>
+    <a href="#track-record" class="mobile-link">Track Record</a>
+    <a href="#tesis" class="mobile-link">Tesis de Inversión</a>
+    <a href="#contacto" class="mobile-link">Contacto</a>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Análisis Fundamental & Asignación de Capital
+          </div>
+          <h1 class="hero-title">
+            Inversión con convicción basada en <span class="text-highlight">valor y análisis riguroso</span>
+          </h1>
+          <p class="hero-subtitle">
+            Comparto mis tesis de inversión en profundidad, el seguimiento continuo de mi cartera y un historial de rentabilidad transparente y contrastable.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#tesis" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              Explorar Tesis
+            </a>
+            <a href="#track-record" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              Ver Track Record
+            </a>
+          </div>
+
+          <!-- Mini Stats Hero -->
+          <div class="hero-stats">
+            <div class="hero-stat-card">
+              <span class="stat-value text-success">+18.4%</span>
+              <span class="stat-label">CAGR Anualizado</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-value text-primary">+8.2%</span>
+              <span class="stat-label">Alpha vs S&P 500</span>
+            </div>
+            <div class="hero-stat-card">
+              <span class="stat-value">12</span>
+              <span class="stat-label">Tesis Publicadas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card-preview">
+          <div class="preview-card-inner">
+            <div class="preview-card-header">
+              <div class="author-avatar-wrapper">
+                <div class="author-avatar-fallback">IN</div>
+              </div>
+              <div class="author-header-meta">
+                <h3 id="hero-card-name">Tu Nombre y Apellidos</h3>
+                <p>Inversor Independiente & Analista</p>
+              </div>
+            </div>
+            <div class="preview-card-body">
+              <div class="metric-row">
+                <span class="metric-row-label">Enfoque:</span>
+                <span class="metric-row-val">Small/Mid Caps & Compounders</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-row-label">Horizonte:</span>
+                <span class="metric-row-val">3 a 5+ años</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-row-label">Filosofía:</span>
+                <span class="metric-row-val">Foso económico + Flujo de caja libre</span>
+              </div>
+            </div>
+            <div class="preview-card-footer">
+              <span class="status-indicator active"></span>
+              <span>Cartera activa con seguimiento mensual</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILOSOFÍA DE INVERSIÓN -->
+    <section id="filosofia" class="section bg-soft">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Metodología</span>
+          <h2 class="section-title">Principios de Inversión</h2>
+          <p class="section-subtitle">
+            Un marco analítico disciplinado para identificar asimetrías favorables entre precio y valor intrínseco.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature-card">
+            <div class="feature-icon icon-blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Ventajas Competitivas Duraderas</h3>
+            <p>
+              Búsqueda de negocios con fosos económicos reales: efectos de red, altos costes de cambio, liderazgo en costes o ventajas de escala protegidas.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon icon-green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            </div>
+            <h3>Asignación Eficiente de Capital</h3>
+            <p>
+              Análisis del equipo gestor ("Management"), incentivos alineados (Skin in the Game) y tasas sostenibles de retorno sobre capital empleado (ROIC/ROCE).
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon icon-purple">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            </div>
+            <h3>Margen de Seguridad Exigente</h3>
+            <p>
+              Comprar por debajo del valor intrínseco estimado mediante descuento de flujos de caja (DCF) y múltiplos normalizados para proteger el capital ante imprevistos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK RECORD -->
+    <section id="track-record" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Rendimiento Histórico</span>
+          <h2 class="section-title">Track Record Auditado</h2>
+          <p class="section-subtitle">
+            Evolución acumulada de la cartera en comparación directa con el índice de referencia (S&P 500 Total Return).
+          </p>
+        </div>
+
+        <!-- KPIs del Track Record -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-label">Retorno Total Acumulado</span>
+            <span class="kpi-value text-success">+142.8%</span>
+            <span class="kpi-benchmark">vs S&P 500: +74.6%</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">CAGR (Tasa Anual Compuesta)</span>
+            <span class="kpi-value text-success">18.4%</span>
+            <span class="kpi-benchmark">vs S&P 500: 10.2%</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Ratio de Sharpe</span>
+            <span class="kpi-value">1.38</span>
+            <span class="kpi-benchmark">Rentabilidad ajustada a riesgo</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Tasa de Acierto (Win Rate)</span>
+            <span class="kpi-value">71.4%</span>
+            <span class="kpi-benchmark">Tesis con rendimiento positivo</span>
+          </div>
+        </div>
+
+        <!-- Gráfico interactivo -->
+        <div class="chart-container-card">
+          <div class="chart-card-header">
+            <div>
+              <h3 class="chart-title">Evolución del Valor Liquidativo (Base 100)</h3>
+              <p class="chart-subtitle">Cartera Personal vs. S&P 500 TR (2021 - Presente)</p>
+            </div>
+            <div class="chart-legend-custom">
+              <span class="legend-item"><span class="legend-dot dot-portfolio"></span> Mi Cartera</span>
+              <span class="legend-item"><span class="legend-dot dot-benchmark"></span> S&P 500 TR</span>
+            </div>
+          </div>
+          <div class="canvas-wrapper">
+            <canvas id="performanceChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Tabla Anual -->
+        <div class="table-card">
+          <h3 class="table-card-title">Rentabilidades Anuales Desglosadas</h3>
+          <div class="table-responsive">
+            <table class="returns-table">
+              <thead>
+                <tr>
+                  <th>Año</th>
+                  <th>Mi Cartera</th>
+                  <th>S&P 500 TR</th>
+                  <th>Alpha (Diferencial)</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody id="returns-table-body">
+                <!-- Se llena dinámicamente con JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESIS DE INVERSIÓN -->
+    <section id="tesis" class="section bg-soft">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Análisis de Compañías</span>
+          <h2 class="section-title">Tesis de Inversión</h2>
+          <p class="section-subtitle">
+            Análisis completos y desgloses fundamentales de cada posición. Selecciona cualquier tesis para leer el informe completo.
+          </p>
+        </div>
+
+        <!-- Filtros y Búsqueda -->
+        <div class="theses-controls">
+          <div class="filter-pills" id="category-filters">
+            <button class="filter-pill active" data-category="todas">Todas</button>
+            <button class="filter-pill" data-category="activas">Activas</button>
+            <button class="filter-pill" data-category="cerradas">Cerradas</button>
+            <button class="filter-pill" data-category="tech">Tecnología</button>
+            <button class="filter-pill" data-category="consumo">Consumo / Retail</button>
+            <button class="filter-pill" data-category="industria">Industrial / Energía</button>
+          </div>
+          <div class="search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="theses-search" placeholder="Buscar por ticker o empresa (ej: ASML, Dino)...">
+          </div>
+        </div>
+
+        <!-- Cuadrícula de Tesis -->
+        <div class="theses-grid" id="theses-grid">
+          <!-- Renderizado dinámicamente por app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO Y SUSCRIPCIÓN -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-content">
+            <span class="section-tag">Conectemos</span>
+            <h2>¿Quieres debatir sobre alguna tesis o intercambiar ideas de inversión?</h2>
+            <p>
+              Publico actualizaciones periódicas, tesis detalladas y reflexiones sobre asignación de capital. Siempre abierto a conversar con otros inversores y analistas.
+            </p>
+
+            <div class="contact-links">
+              <a href="mailto:tu-correo@ejemplo.com" class="contact-btn" id="contact-email-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>tu-correo@ejemplo.com</span>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <span>X / Twitter</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.88 0-1.6.72-1.6 1.6 0 .89.72 1.61 1.6 1.61.89 0 1.61-.72 1.61-1.61 0-.88-.72-1.6-1.61-1.6z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://substack.com" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18l8-4 8 4"></path></svg>
+                <span>Substack / Newsletter</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL PARA LEER TESIS COMPLETA -->
+  <div class="modal-backdrop" id="thesis-modal">
+    <div class="modal-dialog">
+      <button class="modal-close" id="modal-close-btn" aria-label="Cerrar modal">&times;</button>
+      <div class="modal-header">
+        <div class="modal-badge-row">
+          <span class="badge" id="modal-ticker">$TICKER</span>
+          <span class="badge badge-success" id="modal-status">Estado</span>
+          <span class="badge-category" id="modal-category">Sector</span>
+        </div>
+        <h2 id="modal-title">Nombre de la Empresa</h2>
+        <div class="modal-meta">
+          <span>Fecha de publicación: <strong id="modal-date">Octubre 2024</strong></span>
+          <span>Horizonte: <strong id="modal-horizon">3-5 años</strong></span>
+          <span>Precio Entrada: <strong id="modal-entry-price">$0.00</strong></span>
+          <span>Retorno Actual: <strong id="modal-return" class="text-success">+0%</strong></span>
+        </div>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Contenido detallado inyectado por app.js -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modal-btn-download">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Descargar Tesis en PDF
+        </button>
+        <button class="btn btn-primary" id="modal-btn-close">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER CON AVISO LEGAL DE INVERSIÓN -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="logo-badge">INV</span>
+            <span class="logo-name" id="footer-author-name">Tu Nombre</span>
+          </div>
+          <p class="footer-desc">Análisis fundamental independiente de compañías y gestión patrimonial disciplinada.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Navegación</h4>
+          <a href="#inicio">Inicio</a>
+          <a href="#filosofia">Filosofía</a>
+          <a href="#track-record">Track Record</a>
+          <a href="#tesis">Tesis de Inversión</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p>
+          <strong>Aviso Legal & Descargo de Responsabilidad (Disclaimer):</strong> Las opiniones, tesis, valoraciones y datos de rentabilidad expuestos en este sitio web tienen una finalidad exclusivamente formativa, analítica y divulgativa. En ningún caso constituyen una recomendación de compra, venta o asesoramiento financiero en materia de inversión conforme a la normativa vigente. Las rentabilidades pasadas no garantizan rendimientos futuros. Cada inversor debe realizar su propio análisis crítico ("Due Diligence") y evaluar su tolerancia al riesgo antes de tomar decisiones financieras.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> <span id="footer-copy-name">Tu Nombre</span>. Todos los derechos reservados.</p>
+        <p class="footer-credits">Diseñado para alto rendimiento y máxima claridad.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
