@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initProfileData();
   initTrackRecordChart();
-  renderAnnualReturnsTable();
+  renderTrackRecordTables();
   renderTheses(INVESTOR_DATA.theses);
   initThesesFilterAndSearch();
   initModalEvents();
@@ -58,36 +58,36 @@ function initTrackRecordChart() {
 
   const chartData = INVESTOR_DATA.trackRecord.chart;
 
-  // Configuración de Chart.js con estilo limpio y profesional
+  // Configuración de Chart.js con datos reales de Rankia
   performanceChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: chartData.labels,
       datasets: [
         {
-          label: 'Mi Cartera Personal',
+          label: 'Mi Cartera (Rankia)',
           data: chartData.portfolioData,
-          borderColor: '#1e40af',
-          backgroundColor: 'rgba(30, 64, 175, 0.06)',
+          borderColor: '#0284c7', // Azul brillante Rankia
+          backgroundColor: 'rgba(2, 132, 199, 0.08)',
           fill: true,
-          tension: 0.3,
+          tension: 0.35,
           borderWidth: 2.5,
-          pointBackgroundColor: '#1e40af',
+          pointBackgroundColor: '#0284c7',
           pointBorderColor: '#ffffff',
           pointBorderWidth: 2,
           pointRadius: 4,
           pointHoverRadius: 6
         },
         {
-          label: 'S&P 500 TR (Benchmark)',
+          label: 'Fidelity Europe Fund (con dividendos)',
           data: chartData.benchmarkData,
-          borderColor: '#94a3b8',
+          borderColor: '#64748b',
           backgroundColor: 'transparent',
           fill: false,
           borderDash: [5, 5],
-          tension: 0.3,
+          tension: 0.35,
           borderWidth: 2,
-          pointBackgroundColor: '#94a3b8',
+          pointBackgroundColor: '#64748b',
           pointBorderColor: '#ffffff',
           pointBorderWidth: 2,
           pointRadius: 3,
@@ -100,7 +100,7 @@ function initTrackRecordChart() {
       maintainAspectRatio: false,
       plugins: {
         legend: {
-          display: false // Usamos la leyenda personalizada HTML
+          display: false
         },
         tooltip: {
           backgroundColor: '#0f172a',
@@ -111,9 +111,8 @@ function initTrackRecordChart() {
           callbacks: {
             label: function(context) {
               const val = context.parsed.y;
-              const returnPct = (val - 100).toFixed(1);
-              const sign = returnPct > 0 ? '+' : '';
-              return ` ${context.dataset.label}: ${val.toFixed(1)} (${sign}${returnPct}%)`;
+              const sign = val > 0 ? '+' : '';
+              return ` ${context.dataset.label}: ${sign}${val.toFixed(2)}%`;
             }
           }
         }
@@ -124,7 +123,7 @@ function initTrackRecordChart() {
             display: false
           },
           ticks: {
-            font: { family: 'Inter', size: 12 },
+            font: { family: 'Inter', size: 11 },
             color: '#64748b'
           }
         },
@@ -136,7 +135,7 @@ function initTrackRecordChart() {
             font: { family: 'JetBrains Mono', size: 11 },
             color: '#64748b',
             callback: function(value) {
-              return value;
+              return (value > 0 ? '+' : '') + value + '%';
             }
           }
         }
@@ -146,32 +145,64 @@ function initTrackRecordChart() {
 }
 
 /**
- * 3. Renderiza la tabla de rentabilidades anuales
+ * 3. Renderiza las tablas de Track Record Real (Posiciones Cerradas y Cartera Activa)
  */
-function renderAnnualReturnsTable() {
-  const tbody = document.getElementById('returns-table-body');
-  if (!tbody) return;
+function renderTrackRecordTables() {
+  // A) Posiciones Cerradas
+  const closedTbody = document.getElementById('closed-positions-body');
+  if (closedTbody && INVESTOR_DATA.trackRecord.closedPositions) {
+    closedTbody.innerHTML = '';
+    INVESTOR_DATA.trackRecord.closedPositions.forEach(item => {
+      const tr = document.createElement('tr');
+      const isPositive = item.returnPct.startsWith('+');
 
-  tbody.innerHTML = '';
+      tr.innerHTML = `
+        <td>
+          <strong>${item.asset}</strong>
+          <span style="font-size: 0.75rem; color: var(--text-muted); display: block; font-family: var(--font-mono);">${item.ticker}</span>
+        </td>
+        <td class="${isPositive ? 'text-success' : 'text-danger'}"><strong>${item.returnPct}</strong></td>
+        <td class="${isPositive ? 'text-success' : 'text-danger'}">${item.profitEur}</td>
+        <td>${item.totalIncome}</td>
+        <td style="color: var(--text-muted);">${item.closeDate}</td>
+        <td>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="status-pill ${isPositive ? 'status-active' : 'status-closed'}">
+              ${item.status}
+            </span>
+            ${item.thesisId ? `<button class="btn-read-thesis" style="font-size: 0.75rem; padding: 2px 6px;" onclick="openThesisModal('${item.thesisId}')">Ver Tesis</button>` : ''}
+          </div>
+        </td>
+      `;
+      closedTbody.appendChild(tr);
+    });
+  }
 
-  INVESTOR_DATA.trackRecord.annualReturns.forEach(item => {
-    const tr = document.createElement('tr');
-    const isAlphaPos = item.positive;
-    const alphaClass = isAlphaPos ? 'badge-alpha-pos' : 'badge-alpha-neg';
+  // B) Cartera Activa (14 Posiciones)
+  const openTbody = document.getElementById('open-positions-body');
+  if (openTbody && INVESTOR_DATA.trackRecord.openPositions) {
+    openTbody.innerHTML = '';
+    INVESTOR_DATA.trackRecord.openPositions.forEach(pos => {
+      const tr = document.createElement('tr');
+      const isPositive = pos.returnPct.startsWith('+');
 
-    tr.innerHTML = `
-      <td><strong>${item.year}</strong></td>
-      <td class="${item.portfolio.startsWith('+') ? 'text-success' : 'text-danger'}">${item.portfolio}</td>
-      <td>${item.benchmark}</td>
-      <td class="${alphaClass}">${item.alpha}</td>
-      <td>
-        <span class="status-pill ${isAlphaPos ? 'status-active' : 'status-closed'}">
-          ${isAlphaPos ? 'Outperformance' : 'Underperformance'}
-        </span>
-      </td>
-    `;
-    tbody.appendChild(tr);
-  });
+      tr.innerHTML = `
+        <td><strong>${pos.name}</strong></td>
+        <td><span class="ticker-badge" style="font-size: 0.75rem; padding: 2px 6px;">${pos.ticker}</span></td>
+        <td><strong>${pos.weight}</strong></td>
+        <td>${pos.value}</td>
+        <td class="${isPositive ? 'text-success' : 'text-danger'}"><strong>${pos.returnPct}</strong></td>
+        <td>
+          ${pos.isThesis 
+            ? `<button class="btn-read-thesis" style="font-size: 0.8rem; font-weight: 700;" onclick="openThesisModal('${pos.thesisId}')">
+                Tesis Publicada →
+              </button>` 
+            : `<span style="color: var(--text-muted); font-size: 0.8rem;">Posición de Cartera</span>`}
+        </td>
+      `;
+      openTbody.appendChild(tr);
+    });
+  }
 }
 
 /**
