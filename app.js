@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTheses(INVESTOR_DATA.theses);
   initThesesFilterAndSearch();
   initModalEvents();
+  initAboutModal();
   initMobileMenu();
 });
 
@@ -509,4 +510,54 @@ function initMobileMenu() {
       });
     });
   }
+}
+
+/**
+ * 8. Modal Sobre Mí
+ */
+function initAboutModal() {
+  const modal = document.getElementById('about-modal');
+  const closeBtn = document.getElementById('about-modal-close-btn');
+  const btnClose = document.getElementById('about-modal-btn-close');
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    if (modal) {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Elementos que abren el modal Sobre Mí:
+  const triggers = [
+    document.getElementById('about-vignette-btn'),
+    document.getElementById('hero-about-link'),
+    ...document.querySelectorAll('a[href="#sobre-mi"]')
+  ];
+
+  triggers.forEach(trig => {
+    if (trig) trig.addEventListener('click', openModal);
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (btnClose) btnClose.addEventListener('click', closeModal);
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
 }

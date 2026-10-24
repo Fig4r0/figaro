@@ -7,11 +7,11 @@ const INVESTOR_DATA = {
   profile: {
     name: "Jaime Danús",
     role: "Estudiante de Economía (Itinerario Bilingüe) | Inversor Fundamental",
-    tagline: "Apasionado por el Value Investing, el análisis fundamental riguroso y la asignación eficiente de capital.",
+    tagline: "Filosofía: Value Investing y Turnarounds atractivos. Análisis fundamental riguroso y búsqueda de asimetrías de rentabilidad.",
     education: "Grado en Economía (Itinerario Bilingüe) — Universidad de Cantabria",
     languages: "Inglés C1 Certificado por el British Council · Itinerario Bilingüe",
     careerGoal: "Buy-Side Equity Research & Value Investing",
-    focus: "Mid/Small-caps europeas e internacionales, situaciones especiales, fosos económicos y desajustes de valoración.",
+    focus: "Value Investing clásico, turnarounds atractivos, situaciones especiales y desajustes precio-valor.",
     linkedin: "https://www.linkedin.com/in/jaime-danus-bontempini"
   },
 
