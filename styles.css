@@ -707,6 +707,112 @@ body {
 }
 
 /* ==========================================================================
+   PESTAÑAS INSTITUCIONALES (TRACK RECORD & CARTERA)
+   ========================================================================== */
+.track-tabs-container {
+  margin-top: 10px;
+}
+
+.track-tabs-nav {
+  display: inline-flex;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.track-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 9px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.track-tab-btn:hover {
+  color: var(--text-main);
+}
+
+.track-tab-btn.active {
+  background: #ffffff;
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+}
+
+.track-tab-pane {
+  display: none;
+}
+
+.track-tab-pane.active {
+  display: block;
+}
+
+/* Tablas con estética de terminal financiero sobrio */
+.financial-dense-table {
+  font-size: 0.88rem;
+}
+
+.financial-dense-table th {
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  background-color: var(--bg-secondary);
+}
+
+.financial-dense-table td {
+  padding: 12px 14px;
+  font-size: 0.88rem;
+}
+
+.portfolio-meta-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-body);
+}
+
+.meta-pill-primary {
+  background: var(--primary-light);
+  border-color: #bfdbfe;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.contact-btn-linkedin {
+  background-color: #0a66c2 !important;
+  color: #ffffff !important;
+  border-color: #0a66c2 !important;
+  padding: 14px 28px !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 4px 14px rgba(10, 102, 194, 0.25) !important;
+}
+
+.contact-btn-linkedin:hover {
+  background-color: #004182 !important;
+  color: #ffffff !important;
+  border-color: #004182 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ==========================================================================
    TESIS DE INVERSIÓN (TARJETAS + FILTROS)
    ========================================================================== */
 .theses-controls {

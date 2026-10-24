@@ -23,15 +23,18 @@
   <header class="navbar">
     <div class="nav-container">
       <a href="#inicio" class="nav-logo">
-        <span class="logo-badge">INV</span>
-        <span class="logo-name" id="nav-author-name">Tu Nombre</span>
+        <span class="logo-badge">JD</span>
+        <span class="logo-name" id="nav-author-name">Jaime Danús</span>
       </a>
 
       <nav class="nav-links">
         <a href="#filosofia">Filosofía</a>
-        <a href="#track-record">Track Record</a>
+        <a href="#track-record">Track Record & Cartera</a>
         <a href="#tesis">Tesis de Inversión</a>
-        <a href="#contacto" class="btn btn-outline-sm">Contacto</a>
+        <a href="https://www.linkedin.com/in/jaime-danus-bontempini" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm" style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.88 0-1.6.72-1.6 1.6 0 .89.72 1.61 1.6 1.61.89 0 1.61-.72 1.61-1.61 0-.88-.72-1.6-1.61-1.6z"/></svg>
+          LinkedIn
+        </a>
       </nav>
 
       <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú">
@@ -225,61 +228,80 @@
           </div>
         </div>
 
-        <!-- Tablas de Historial: Cerradas y Cartera Viva -->
-        <div class="portfolio-tables-wrapper">
-          <!-- Posiciones Cerradas -->
-          <div class="table-card" style="margin-bottom: 32px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
-              <div>
-                <h3 class="table-card-title" style="margin-bottom: 4px;">Track Record Realizado — Posiciones Cerradas</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Tesis monetizadas y órdenes de venta ejecutadas con plusvalía neta de +161,55 €.</p>
+        <!-- Selector de Pestañas Institucionales -->
+        <div class="track-tabs-container">
+          <div class="track-tabs-nav" role="tablist">
+            <button class="track-tab-btn active" data-tab="tab-closed" role="tab">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Posiciones Cerradas (Plusvalías Realizadas)
+            </button>
+            <button class="track-tab-btn" data-tab="tab-portfolio" role="tab">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              Composición de Cartera (14 Activos)
+            </button>
+          </div>
+
+          <!-- PESTAÑA 1: POSICIONES CERRADAS -->
+          <div class="track-tab-pane active" id="tab-closed">
+            <div class="table-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                <div>
+                  <h3 class="table-card-title" style="margin-bottom: 4px;">Track Record Realizado (Octubre 2026)</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Tesis monetizadas y órdenes de venta ejecutadas con una plusvalía neta de +161,55 €.</p>
+                </div>
+                <span class="status-pill status-active">2 Operaciones Cerradas</span>
               </div>
-              <span class="status-pill status-active">2 Operaciones Cerradas</span>
-            </div>
-            <div class="table-responsive">
-              <table class="returns-table">
-                <thead>
-                  <tr>
-                    <th>Activo / Ticker</th>
-                    <th>Rentabilidad Realizada</th>
-                    <th>Plusvalía Neta (€)</th>
-                    <th>Ingreso Total</th>
-                    <th>Fecha Cierre</th>
-                    <th>Estado de la Tesis</th>
-                  </tr>
-                </thead>
-                <tbody id="closed-positions-body">
-                  <!-- Se llena dinámicamente con JavaScript -->
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="returns-table financial-dense-table">
+                  <thead>
+                    <tr>
+                      <th>Activo / Ticker</th>
+                      <th>Rentabilidad Realizada</th>
+                      <th>Plusvalía Neta (€)</th>
+                      <th>Ingreso Total</th>
+                      <th>Fecha Cierre</th>
+                      <th>Estado / Enlace a Tesis</th>
+                    </tr>
+                  </thead>
+                  <tbody id="closed-positions-body">
+                    <!-- Dinámico con JS -->
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
 
-          <!-- Cartera Activa -->
-          <div class="table-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
-              <div>
-                <h3 class="table-card-title" style="margin-bottom: 4px;">Composición Actual de la Cartera (14 Posiciones)</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">95,81% en renta variable (9.488,98 €) + 4,19% en liquidez táctica (414,69 €).</p>
+          <!-- PESTAÑA 2: COMPOSICIÓN DE CARTERA (SOBRIA, INSTITUCIONAL) -->
+          <div class="track-tab-pane" id="tab-portfolio">
+            <div class="table-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                <div>
+                  <h3 class="table-card-title" style="margin-bottom: 4px;">Desglose Patrimonial Completo</h3>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Posiciones vivas a fecha 24 de octubre de 2026 (Auditado en Rankia / MyPortfolio).</p>
+                </div>
+                <div class="portfolio-meta-pills">
+                  <span class="meta-pill">Renta Variable: <strong>9.488,98 € (95,8%)</strong></span>
+                  <span class="meta-pill">Liquidez: <strong>414,69 € (4,2%)</strong></span>
+                  <span class="meta-pill meta-pill-primary">Total: <strong>9.903,67 €</strong></span>
+                </div>
               </div>
-              <span class="status-pill" style="background: var(--primary-light); color: var(--primary);">Cartera Viva</span>
-            </div>
-            <div class="table-responsive">
-              <table class="returns-table">
-                <thead>
-                  <tr>
-                    <th>Empresa</th>
-                    <th>Ticker</th>
-                    <th>Peso en Cartera</th>
-                    <th>Valor Actual (€)</th>
-                    <th>Rentabilidad Latente</th>
-                    <th>Tesis Asociada</th>
-                  </tr>
-                </thead>
-                <tbody id="open-positions-body">
-                  <!-- Se llena dinámicamente con JavaScript -->
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="returns-table financial-dense-table">
+                  <thead>
+                    <tr>
+                      <th>Ticker</th>
+                      <th>Compañía</th>
+                      <th>Asignación (%)</th>
+                      <th>Valor Actual (€)</th>
+                      <th>Retorno Latente</th>
+                      <th>Tesis Asociada</th>
+                    </tr>
+                  </thead>
+                  <tbody id="open-positions-body">
+                    <!-- Dinámico con JS -->
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -290,10 +312,10 @@
     <section id="tesis" class="section bg-soft">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Análisis de Compañías</span>
+          <span class="section-tag">Análisis Fundamental</span>
           <h2 class="section-title">Tesis de Inversión</h2>
           <p class="section-subtitle">
-            Análisis completos y desgloses fundamentales de cada posición. Selecciona cualquier tesis para leer el informe completo.
+            Análisis exhaustivos con modelo DCF/SOTP, margen de seguridad y documento Word (.docx) descargable.
           </p>
         </div>
 
@@ -320,34 +342,27 @@
       </div>
     </section>
 
-    <!-- CONTACTO Y SUSCRIPCIÓN -->
+    <!-- CONTACTO EXCLUSIVO LINKEDIN -->
     <section id="contacto" class="section">
       <div class="container">
         <div class="contact-card">
           <div class="contact-content">
-            <span class="section-tag">Conectemos</span>
-            <h2>¿Quieres debatir sobre alguna tesis o intercambiar ideas de inversión?</h2>
+            <span class="section-tag">Contacto Profesional</span>
+            <h2>Conectemos en LinkedIn</h2>
             <p>
-              Publico actualizaciones periódicas, tesis detalladas y reflexiones sobre asignación de capital. Siempre abierto a conversar con otros inversores y analistas.
+              Escríbeme para debatir sobre cualquiera de las tesis publicadas, contrastar modelos de valoración fundamental o intercambiar ideas de inversión.
             </p>
 
             <div class="contact-links">
-              <a href="mailto:tu-correo@ejemplo.com" class="contact-btn" id="contact-email-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                <span>tu-correo@ejemplo.com</span>
+              <a href="https://www.linkedin.com/in/jaime-danus-bontempini" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn-linkedin">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.88 0-1.6.72-1.6 1.6 0 .89.72 1.61 1.6 1.61.89 0 1.61-.72 1.61-1.61 0-.88-.72-1.6-1.61-1.6z"/></svg>
+                <span>linkedin.com/in/jaime-danus-bontempini</span>
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                <span>X / Twitter</span>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.88 0-1.6.72-1.6 1.6 0 .89.72 1.61 1.6 1.61.89 0 1.61-.72 1.61-1.61 0-.88-.72-1.6-1.61-1.6z"/></svg>
-                <span>LinkedIn</span>
-              </a>
-              <a href="https://substack.com" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18l8-4 8 4"></path></svg>
-                <span>Substack / Newsletter</span>
-              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
             </div>
           </div>
         </div>
@@ -398,18 +413,18 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-logo">
-            <span class="logo-badge">INV</span>
-            <span class="logo-name" id="footer-author-name">Tu Nombre</span>
+            <span class="logo-badge">JD</span>
+            <span class="logo-name" id="footer-author-name">Jaime Danús</span>
           </div>
-          <p class="footer-desc">Análisis fundamental independiente de compañías y gestión patrimonial disciplinada.</p>
+          <p class="footer-desc">Análisis fundamental independiente de renta variable, modelización financiera y gestión disciplinada de cartera.</p>
         </div>
         <div class="footer-nav">
           <h4>Navegación</h4>
           <a href="#inicio">Inicio</a>
           <a href="#filosofia">Filosofía</a>
-          <a href="#track-record">Track Record</a>
+          <a href="#track-record">Track Record & Cartera</a>
           <a href="#tesis">Tesis de Inversión</a>
-          <a href="#contacto">Contacto</a>
+          <a href="https://www.linkedin.com/in/jaime-danus-bontempini" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
 
@@ -420,8 +435,8 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© <span id="current-year">2026</span> <span id="footer-copy-name">Tu Nombre</span>. Todos los derechos reservados.</p>
-        <p class="footer-credits">Diseñado para alto rendimiento y máxima claridad.</p>
+        <p>© <span id="current-year">2026</span> <span id="footer-copy-name">Jaime Danús</span>. Todos los derechos reservados.</p>
+        <p class="footer-credits">Diseñado con rigor financiero y máxima claridad analítica.</p>
       </div>
     </div>
   </footer>

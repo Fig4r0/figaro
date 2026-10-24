@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initProfileData();
   initTrackRecordChart();
+  initTrackTabs();
   renderTrackRecordTables();
   renderTheses(INVESTOR_DATA.theses);
   initThesesFilterAndSearch();
@@ -32,13 +33,11 @@ function initProfileData() {
     if (el) el.textContent = profile.name;
   });
 
-  // Enlace de correo
-  const emailBtn = document.getElementById('contact-email-btn');
-  if (emailBtn) {
-    emailBtn.href = `mailto:${profile.email}`;
-    const span = emailBtn.querySelector('span');
-    if (span) span.textContent = profile.email;
-  }
+  // Enlace directo de LinkedIn
+  const linkedinLinks = document.querySelectorAll('a[href*="linkedin.com"]');
+  linkedinLinks.forEach(link => {
+    link.href = profile.linkedin;
+  });
 
   // Año actual en el footer
   const yearEl = document.getElementById('current-year');
@@ -178,7 +177,7 @@ function renderTrackRecordTables() {
     });
   }
 
-  // B) Cartera Activa (14 Posiciones)
+  // B) Cartera Activa (14 Posiciones — Estilo FactSet/Bloomberg)
   const openTbody = document.getElementById('open-positions-body');
   if (openTbody && INVESTOR_DATA.trackRecord.openPositions) {
     openTbody.innerHTML = '';
@@ -187,22 +186,43 @@ function renderTrackRecordTables() {
       const isPositive = pos.returnPct.startsWith('+');
 
       tr.innerHTML = `
+        <td><span class="ticker-badge" style="font-size: 0.78rem; padding: 2px 7px;">${pos.ticker}</span></td>
         <td><strong>${pos.name}</strong></td>
-        <td><span class="ticker-badge" style="font-size: 0.75rem; padding: 2px 6px;">${pos.ticker}</span></td>
         <td><strong>${pos.weight}</strong></td>
         <td>${pos.value}</td>
         <td class="${isPositive ? 'text-success' : 'text-danger'}"><strong>${pos.returnPct}</strong></td>
         <td>
           ${pos.isThesis 
             ? `<button class="btn-read-thesis" style="font-size: 0.8rem; font-weight: 700;" onclick="openThesisModal('${pos.thesisId}')">
-                Tesis Publicada →
+                Tesis en Web →
               </button>` 
-            : `<span style="color: var(--text-muted); font-size: 0.8rem;">Posición de Cartera</span>`}
+            : `<span style="color: var(--text-muted); font-size: 0.78rem;">Cartera</span>`}
         </td>
       `;
       openTbody.appendChild(tr);
     });
   }
+}
+
+/**
+ * Gestión de Pestañas Institucionales (Track Record vs. Composición)
+ */
+function initTrackTabs() {
+  const tabBtns = document.querySelectorAll('.track-tab-btn');
+  const tabPanes = document.querySelectorAll('.track-tab-pane');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.tab;
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabPanes.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const activePane = document.getElementById(targetId);
+      if (activePane) activePane.classList.add('active');
+    });
+  });
 }
 
 /**

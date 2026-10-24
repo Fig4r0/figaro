@@ -7,34 +7,32 @@ const INVESTOR_DATA = {
   profile: {
     name: "Jaime Danús",
     role: "Inversor Particular & Analista Fundamental",
-    tagline: "Análisis fundamental exhaustivo, valoración DCF/SOTP y búsqueda de márgenes de seguridad exigentes.",
+    tagline: "Análisis fundamental de renta variable, asignación disciplinada de capital y seguimiento público de cartera.",
     focus: "Mid/Small-caps europeas e internacionales, situaciones especiales, fosos económicos y desajustes de valoración.",
-    email: "jaimedanus@gmail.com",
-    twitter: "https://x.com",
-    linkedin: "https://linkedin.com",
-    substack: "https://substack.com"
+    linkedin: "https://www.linkedin.com/in/jaime-danus-bontempini"
   },
 
-  // 2. Track Record Real (Auditado en Rankia / MyPortfolio)
+  // 2. Track Record Real (Auditado en Rankia / MyPortfolio — Octubre 2026)
   trackRecord: {
     stats: {
-      alpha: "+1,40%",
-      alphaBenchmark: "Fidelity Europe Fund",
+      period: "2 oct 2026 – 24 oct 2026",
+      alpha: "+1,40%", // +140 bps
+      alphaBenchmark: "Fidelity Europe Fund (con dividendos)",
       portfolioReturn: "-1,03%",
       benchmarkReturn: "-2,43%",
       totalValue: "9.903,67 €",
-      investedCapital: "9.751,25 €",
-      cashWeight: "4,19% (414,69 €)",
+      investedCapital: "9.488,98 € (95,81%)",
+      cashWeight: "414,69 € (4,19%)",
       realizedProfit: "+161,55 €",
       bestRealizedTrade: "+44,52% (XP Inc.)",
-      openPositionsCount: "14 Posiciones"
+      openPositionsCount: "14 Posiciones Activas"
     },
     
-    // Evolución de rentabilidad acumulada (%) frente al benchmark
+    // Evolución de rentabilidad acumulada (%) del 2 al 24 de Octubre de 2026
     chart: {
-      labels: ["Inicio", "Mes 1", "Mes 2", "Mes 3", "Mes 4", "Mes 5", "Mes 6", "Mes 7", "Mes 8", "Actual (24 Oct)"],
-      portfolioData: [0.0, 1.2, 2.3, 0.4, 2.1, 1.1, 2.2, 0.8, 1.4, -1.03],
-      benchmarkData: [0.0, -0.6, 0.4, -2.1, -1.2, -1.9, -1.4, -2.1, -0.8, -2.43]
+      labels: ["2 oct", "5 oct", "8 oct", "12 oct", "15 oct", "17 oct", "19 oct", "21 oct", "24 oct"],
+      portfolioData: [0.0, 2.1, 0.2, 2.0, 1.1, 2.1, 0.6, 1.3, -1.03],
+      benchmarkData: [0.0, 0.3, -1.8, -1.2, -1.7, -1.1, -1.7, -0.5, -2.43]
     },
 
     // Posiciones cerradas (Track Record monetizado)
