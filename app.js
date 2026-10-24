@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModalEvents();
   initAboutModal();
   initMobileMenu();
+  initScrollReveal();
 });
 
 /**
@@ -244,9 +245,10 @@ function renderTheses(thesesList) {
     return;
   }
 
-  thesesList.forEach(item => {
+  thesesList.forEach((item, index) => {
     const card = document.createElement('article');
     card.className = 'thesis-card';
+    card.style.animation = `tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.05}s both`;
     card.dataset.id = item.id;
 
     card.innerHTML = `
@@ -561,3 +563,32 @@ function initAboutModal() {
     }
   });
 }
+
+/**
+ * 9. Scroll Reveal con IntersectionObserver para transiciones fluidas
+ */
+function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal');
+  if (!elements.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.1
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+
