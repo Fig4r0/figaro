@@ -262,16 +262,16 @@
         <!-- Filtros y Búsqueda -->
         <div class="theses-controls">
           <div class="filter-pills" id="category-filters">
-            <button class="filter-pill active" data-category="todas">Todas</button>
-            <button class="filter-pill" data-category="activas">Activas</button>
-            <button class="filter-pill" data-category="cerradas">Cerradas</button>
-            <button class="filter-pill" data-category="tech">Tecnología</button>
-            <button class="filter-pill" data-category="consumo">Consumo / Retail</button>
-            <button class="filter-pill" data-category="industria">Industrial / Energía</button>
+            <button class="filter-pill active" data-category="todas">Todas las Tesis</button>
+            <button class="filter-pill" data-category="defensa">Defensa & Uso Dual</button>
+            <button class="filter-pill" data-category="energia">Energía & BESS</button>
+            <button class="filter-pill" data-category="fintech">Fintech & Plataformas</button>
+            <button class="filter-pill" data-category="inmobiliario">Inmobiliario (SOCIMIs)</button>
+            <button class="filter-pill" data-category="consumo">Consumo & Retail</button>
           </div>
           <div class="search-box">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" id="theses-search" placeholder="Buscar por ticker o empresa (ej: ASML, Dino)...">
+            <input type="text" id="theses-search" placeholder="Buscar por empresa o ticker (ej: Grenergy, Amper, XP)...">
           </div>
         </div>
 
@@ -339,11 +339,17 @@
         <!-- Contenido detallado inyectado por app.js -->
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" id="modal-btn-download">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Descargar Tesis en PDF
-        </button>
-        <button class="btn btn-primary" id="modal-btn-close">Cerrar</button>
+        <a href="#" class="btn btn-primary" id="modal-btn-word" download>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Abrir / Descargar Word (.docx)
+        </a>
+        <div class="modal-footer-actions">
+          <button class="btn btn-secondary" id="modal-btn-download">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Imprimir / Guardar PDF
+          </button>
+          <button class="btn btn-outline-sm" id="modal-btn-close">Cerrar</button>
+        </div>
       </div>
     </div>
   </div>

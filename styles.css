@@ -779,7 +779,7 @@ body {
   background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -794,17 +794,57 @@ body {
   border-color: var(--border-subtle);
 }
 
+.thesis-card-img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--bg-tertiary);
+}
+
+.thesis-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.thesis-card:hover .thesis-card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.thesis-card-rating-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  letter-spacing: 0.03em;
+}
+
+.thesis-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .card-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 16px;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .ticker-badge {
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--primary);
   background-color: var(--primary-light);
   padding: 4px 10px;
@@ -814,7 +854,7 @@ body {
 
 .status-pill {
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 4px 10px;
   border-radius: 9999px;
   text-transform: uppercase;
@@ -836,7 +876,7 @@ body {
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   line-height: 1.25;
 }
 
@@ -851,6 +891,7 @@ body {
   color: var(--text-body);
   line-height: 1.55;
   margin-bottom: 20px;
+  flex-grow: 1;
 }
 
 .thesis-metrics {
@@ -883,15 +924,34 @@ body {
 
 .card-footer {
   border-top: 1px solid var(--border-color);
-  padding-top: 18px;
+  padding: 18px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
 }
 
-.card-date {
+.btn-word-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.8rem;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: #1e40af;
+  background: var(--primary-light);
+  border: 1px solid #bfdbfe;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-word-pill:hover {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+  transform: translateY(-1px);
 }
 
 .btn-read-thesis {
@@ -904,13 +964,37 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 0;
+  padding: 6px 0;
   transition: var(--transition);
 }
 
 .btn-read-thesis:hover {
   color: var(--primary-hover);
   transform: translateX(2px);
+}
+
+/* Gráficos dentro del modal */
+.modal-chart-item {
+  margin: 24px 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+}
+
+.modal-chart-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.modal-chart-caption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
 /* ==========================================================================

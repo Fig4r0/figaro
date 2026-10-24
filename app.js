@@ -197,13 +197,16 @@ function renderTheses(thesesList) {
     card.className = 'thesis-card';
     card.dataset.id = item.id;
 
-    const isPositive = item.currentReturn.startsWith('+');
-
     card.innerHTML = `
-      <div>
+      <div class="thesis-card-img-wrap">
+        <img src="${item.coverImage}" alt="${item.company}" loading="lazy" onerror="this.style.display='none'">
+        <span class="thesis-card-rating-badge">${item.ratingBadge || item.statusLabel}</span>
+      </div>
+
+      <div class="thesis-card-body">
         <div class="card-top">
           <span class="ticker-badge">${item.ticker}</span>
-          <span class="status-pill ${item.status === 'active' ? 'status-active' : 'status-closed'}">
+          <span class="status-pill status-active">
             ${item.statusLabel}
           </span>
         </div>
@@ -214,16 +217,16 @@ function renderTheses(thesesList) {
 
         <div class="thesis-metrics">
           <div class="thesis-metric-item">
-            <span class="lbl">Precio Entrada:</span>
-            <span class="val">${item.entryPrice}</span>
+            <span class="lbl">Precio Actual:</span>
+            <span class="val">${item.currentPrice}</span>
           </div>
           <div class="thesis-metric-item">
-            <span class="lbl">Retorno Actual:</span>
-            <span class="val ${isPositive ? 'text-success' : 'text-danger'}">${item.currentReturn}</span>
+            <span class="lbl">Precio Objetivo:</span>
+            <span class="val">${item.targetPrice}</span>
           </div>
           <div class="thesis-metric-item">
-            <span class="lbl">Horizonte:</span>
-            <span class="val">${item.horizon}</span>
+            <span class="lbl">Potencial Estimado:</span>
+            <span class="val text-success">${item.upside}</span>
           </div>
           <div class="thesis-metric-item">
             <span class="lbl">Publicado:</span>
@@ -233,10 +236,13 @@ function renderTheses(thesesList) {
       </div>
 
       <div class="card-footer">
-        <span class="card-date">Informe exhaustivo</span>
+        <a href="${item.wordFile}" download class="btn-word-pill" title="Descargar y abrir informe en Word (.docx)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Abrir Word (.docx)
+        </a>
         <button class="btn-read-thesis" onclick="openThesisModal('${item.id}')">
-          Leer tesis completa
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Leer tesis
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
     `;
@@ -257,13 +263,9 @@ function initThesesFilterAndSearch() {
 
   function applyFilters() {
     let filtered = INVESTOR_DATA.theses.filter(thesis => {
-      // Filtro por categoría o estado
+      // Filtro por categoría
       let matchesCategory = true;
-      if (currentCategory === 'activas') {
-        matchesCategory = thesis.status === 'active';
-      } else if (currentCategory === 'cerradas') {
-        matchesCategory = thesis.status === 'closed';
-      } else if (currentCategory !== 'todas') {
+      if (currentCategory !== 'todas') {
         matchesCategory = thesis.category === currentCategory;
       }
 
@@ -312,17 +314,24 @@ function openThesisModal(thesisId) {
   const modal = document.getElementById('thesis-modal');
   if (!modal) return;
 
+  // Actualizar enlace al documento Word original
+  const wordBtn = document.getElementById('modal-btn-word');
+  if (wordBtn) {
+    wordBtn.href = thesis.wordFile;
+    wordBtn.download = thesis.wordFile.split('/').pop();
+  }
+
   // Poblar datos de cabecera del modal
   document.getElementById('modal-ticker').textContent = thesis.ticker;
   document.getElementById('modal-status').textContent = thesis.statusLabel;
-  document.getElementById('modal-status').className = `badge ${thesis.status === 'active' ? 'status-active' : 'status-closed'}`;
+  document.getElementById('modal-status').className = `badge status-active`;
   document.getElementById('modal-category').textContent = thesis.sector;
   document.getElementById('modal-title').textContent = `${thesis.company} (${thesis.ticker})`;
   document.getElementById('modal-date').textContent = thesis.date;
   document.getElementById('modal-horizon').textContent = thesis.horizon;
-  document.getElementById('modal-entry-price').textContent = thesis.entryPrice;
-  document.getElementById('modal-return').textContent = thesis.currentReturn;
-  document.getElementById('modal-return').className = thesis.currentReturn.startsWith('+') ? 'text-success' : 'text-danger';
+  document.getElementById('modal-entry-price').textContent = thesis.currentPrice;
+  document.getElementById('modal-return').textContent = thesis.upside;
+  document.getElementById('modal-return').className = 'text-success';
 
   // Poblar el contenido del análisis
   const contentEl = document.getElementById('modal-content');
@@ -333,17 +342,7 @@ function openThesisModal(thesisId) {
     moatsHtml = `
       <h4>Fosos Económicos y Ventajas Competitivas (Moats)</h4>
       <ul>
-        ${a.moats.map(m => `<li><strong>${m}</strong></li>`).join('')}
-      </ul>
-    `;
-  }
-
-  let catalystsHtml = '';
-  if (a.catalysts && a.catalysts.length > 0) {
-    catalystsHtml = `
-      <h4>Catalizadores de Crecimiento & Expansión</h4>
-      <ul>
-        ${a.catalysts.map(c => `<li>${c}</li>`).join('')}
+        ${a.moats.map(m => `<li>${m}</li>`).join('')}
       </ul>
     `;
   }
@@ -351,33 +350,56 @@ function openThesisModal(thesisId) {
   let risksHtml = '';
   if (a.risks && a.risks.length > 0) {
     risksHtml = `
-      <h4>Principales Riesgos & Mitigantes Identificados</h4>
+      <h4>Principales Riesgos & Factores de Invalidación</h4>
       <ul>
         ${a.risks.map(r => `<li>${r}</li>`).join('')}
       </ul>
     `;
   }
 
+  let chartsHtml = '';
+  if (a.charts && a.charts.length > 0) {
+    chartsHtml = `
+      <h4>Gráficos Forenses y Modelos Analíticos</h4>
+      <div class="modal-charts-grid">
+        ${a.charts.map(c => `
+          <div class="modal-chart-item">
+            <img src="${c.src}" alt="${c.caption}">
+            <p class="modal-chart-caption">${c.caption}</p>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
   contentEl.innerHTML = `
-    <div class="callout-box">
-      <strong>Tesis Central en Síntesis:</strong> ${thesis.summary}
+    <div class="callout-box" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <strong>Tesis Resumen — Jaime Danús:</strong><br>
+        ${thesis.summary}
+      </div>
+      <a href="${thesis.wordFile}" download class="btn-word-pill" style="font-size: 0.85rem; padding: 8px 14px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Descargar Documento Word (.docx)
+      </a>
     </div>
 
-    <h4>Modelo de Negocio y Razón de Inversión</h4>
-    <p>${a.thesisCore}</p>
+    <h4>El Pitch: Riesgo Percibido vs. Realidad Fundamental</h4>
+    <p>${a.pitch}</p>
 
     ${moatsHtml}
-    ${catalystsHtml}
 
-    <h4>Valoración y Margen de Seguridad</h4>
+    <h4>Valoración, Modelo y Margen de Seguridad</h4>
     <p>${a.valuation}</p>
+
+    ${chartsHtml}
 
     ${risksHtml}
   `;
 
   // Mostrar modal
   modal.classList.add('open');
-  document.body.style.overflow = 'hidden'; // Evitar scroll del fondo
+  document.body.style.overflow = 'hidden';
 }
 
 function closeThesisModal() {
