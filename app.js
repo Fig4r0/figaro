@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAboutModal();
   initMobileMenu();
   initScrollReveal();
+  initDynamicQuotes();
 });
 
 /**
@@ -251,6 +252,8 @@ function renderTheses(thesesList) {
     card.style.animation = `tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.05}s both`;
     card.dataset.id = item.id;
 
+    const isClosed = item.status === 'closed';
+
     card.innerHTML = `
       <div class="thesis-card-img-wrap">
         <img src="${item.coverImage}" alt="${item.company}" loading="lazy" onerror="this.style.display='none'">
@@ -260,7 +263,7 @@ function renderTheses(thesesList) {
       <div class="thesis-card-body">
         <div class="card-top">
           <span class="ticker-badge">${item.ticker}</span>
-          <span class="status-pill status-active">
+          <span class="status-pill ${isClosed ? 'status-closed' : 'status-active'}">
             ${item.statusLabel}
           </span>
         </div>
@@ -271,20 +274,22 @@ function renderTheses(thesesList) {
 
         <div class="thesis-metrics">
           <div class="thesis-metric-item">
-            <span class="lbl">Precio Actual:</span>
-            <span class="val">${item.currentPrice}</span>
+            <span class="lbl">Precio Entrada (${item.date}):</span>
+            <span class="val">${item.entryPrice}</span>
+          </div>
+          <div class="thesis-metric-item live-metric-item">
+            <span class="lbl"><span class="live-dot-pulse"></span>Cotización Actual:</span>
+            <span class="val quote-live" data-ticker="${item.symbol}">
+              <span class="price-val">${item.currentPrice}</span>
+            </span>
           </div>
           <div class="thesis-metric-item">
             <span class="lbl">Precio Objetivo:</span>
             <span class="val">${item.targetPrice}</span>
           </div>
           <div class="thesis-metric-item">
-            <span class="lbl">Potencial Estimado:</span>
-            <span class="val text-success">${item.upside}</span>
-          </div>
-          <div class="thesis-metric-item">
-            <span class="lbl">Publicado:</span>
-            <span class="val">${item.date}</span>
+            <span class="lbl">${isClosed ? 'Retorno Monetizado:' : 'Potencial a Objetivo:'}</span>
+            <span class="val text-success upside-val" data-upside-ticker="${item.symbol}">${item.upside}</span>
           </div>
         </div>
       </div>
@@ -295,7 +300,7 @@ function renderTheses(thesesList) {
           Abrir Word (.docx)
         </a>
         <button class="btn-read-thesis" onclick="openThesisModal('${item.id}')">
-          Leer tesis
+          Ver tesis explicada
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
@@ -361,12 +366,20 @@ function initThesesFilterAndSearch() {
 /**
  * 6. Modal de lectura completa de tesis
  */
+let currentOpenThesisId = null;
+
+/**
+ * 6. Modal de lectura completa de tesis
+ */
 function openThesisModal(thesisId) {
   const thesis = INVESTOR_DATA.theses.find(t => t.id === thesisId);
   if (!thesis) return;
+  currentOpenThesisId = thesisId;
 
   const modal = document.getElementById('thesis-modal');
   if (!modal) return;
+
+  const isClosed = thesis.status === 'closed';
 
   // Actualizar enlace al documento Word original
   const wordBtn = document.getElementById('modal-btn-word');
@@ -376,20 +389,50 @@ function openThesisModal(thesisId) {
   }
 
   // Poblar datos de cabecera del modal
-  document.getElementById('modal-ticker').textContent = thesis.ticker;
-  document.getElementById('modal-status').textContent = thesis.statusLabel;
-  document.getElementById('modal-status').className = `badge status-active`;
-  document.getElementById('modal-category').textContent = thesis.sector;
-  document.getElementById('modal-title').textContent = `${thesis.company} (${thesis.ticker})`;
-  document.getElementById('modal-date').textContent = thesis.date;
-  document.getElementById('modal-horizon').textContent = thesis.horizon;
-  document.getElementById('modal-entry-price').textContent = thesis.currentPrice;
-  document.getElementById('modal-return').textContent = thesis.upside;
-  document.getElementById('modal-return').className = 'text-success';
+  const tickerEl = document.getElementById('modal-ticker');
+  if (tickerEl) tickerEl.textContent = thesis.ticker;
+
+  const statusEl = document.getElementById('modal-status');
+  if (statusEl) {
+    statusEl.textContent = thesis.statusLabel;
+    statusEl.className = `badge ${isClosed ? 'status-closed' : 'badge-success'}`;
+  }
+
+  const categoryEl = document.getElementById('modal-category');
+  if (categoryEl) categoryEl.textContent = thesis.sector;
+
+  const titleEl = document.getElementById('modal-title');
+  if (titleEl) titleEl.textContent = `${thesis.company} (${thesis.ticker})`;
+
+  const dateEl = document.getElementById('modal-date');
+  if (dateEl) dateEl.textContent = thesis.date;
+
+  const horizonEl = document.getElementById('modal-horizon');
+  if (horizonEl) horizonEl.textContent = thesis.horizon;
+
+  const entryPriceEl = document.getElementById('modal-entry-price');
+  if (entryPriceEl) entryPriceEl.textContent = thesis.entryPrice;
+
+  const currentPriceEl = document.getElementById('modal-current-price');
+  if (currentPriceEl) currentPriceEl.textContent = thesis.currentPrice;
+
+  const targetPriceEl = document.getElementById('modal-target-price');
+  if (targetPriceEl) targetPriceEl.textContent = thesis.targetPrice;
+
+  const returnEl = document.getElementById('modal-return');
+  if (returnEl) {
+    returnEl.textContent = thesis.upside;
+    returnEl.className = thesis.upside.startsWith('-') ? 'text-danger' : 'text-success';
+  }
 
   // Poblar el contenido del análisis
   const contentEl = document.getElementById('modal-content');
   const a = thesis.analysis;
+  const s = thesis.simplified || {
+    whatTheyDo: thesis.summary,
+    theOpportunity: "Oportunidad de valoración atractiva con catalizadores claros a medio plazo.",
+    theTurnaround: "Convergencia hacia el valor intrínseco estimado en base a fundamentales."
+  };
 
   let moatsHtml = '';
   if (a.moats && a.moats.length > 0) {
@@ -427,28 +470,88 @@ function openThesisModal(thesisId) {
   }
 
   contentEl.innerHTML = `
-    <div class="callout-box" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-      <div>
-        <strong>Tesis Resumen — Jaime Danús:</strong><br>
-        ${thesis.summary}
+    <!-- 1. VISIÓN SIMPLIFICADA (ACCESIBLE PARA TODOS) -->
+    <div class="simplified-thesis-section">
+      <div class="simplified-banner">
+        <span class="simplified-badge">💡 Explicación Sencilla & Directa</span>
+        <h3 class="simplified-heading">Entendiendo la Tesis en 3 Puntos Clave</h3>
+        <p class="simplified-sub">Diseñado para que cualquier persona comprenda la lógica del negocio y por qué existe una gran oportunidad de inversión, sin tecnicismos complejos.</p>
       </div>
-      <a href="${thesis.wordFile}" download class="btn-word-pill" style="font-size: 0.85rem; padding: 8px 14px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-        Descargar Documento Word (.docx)
-      </a>
+
+      <div class="simplified-pillars-grid">
+        <div class="simplified-pillar-card">
+          <div class="pillar-icon">🏢</div>
+          <div class="pillar-content">
+            <h5>1. ¿A qué se dedica la empresa?</h5>
+            <p>${s.whatTheyDo}</p>
+          </div>
+        </div>
+
+        <div class="simplified-pillar-card">
+          <div class="pillar-icon">📉</div>
+          <div class="pillar-content">
+            <h5>2. ¿Por qué está barata o el mercado la castiga?</h5>
+            <p>${s.theOpportunity}</p>
+          </div>
+        </div>
+
+        <div class="simplified-pillar-card">
+          <div class="pillar-icon">🚀</div>
+          <div class="pillar-content">
+            <h5>3. ¿Por qué va a subir? (Los catalizadores)</h5>
+            <p>${s.theTurnaround}</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <h4>El Pitch: Riesgo Percibido vs. Realidad Fundamental</h4>
-    <p>${a.pitch}</p>
+    <!-- 2. BOTÓN INTERACTIVO PARA PROFUNDIZAR EN LA TESIS TÉCNICA -->
+    <div class="deep-dive-trigger-wrap">
+      <button type="button" class="btn-deep-dive" id="btn-toggle-deep-dive" onclick="toggleDeepDive()">
+        <div class="btn-deep-dive-inner">
+          <div class="btn-deep-dive-icon">📊</div>
+          <div class="btn-deep-dive-text">
+            <strong>Profundizar en el Análisis Técnico e Institucional</strong>
+            <span>Ver modelo DCF / SOTP, ventajas competitivas (Moats), riesgos y gráficos forenses</span>
+          </div>
+        </div>
+        <div class="btn-deep-dive-arrow">
+          <span class="toggle-state-text" id="deep-dive-btn-label">Desplegar</span>
+          <svg class="chevron-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </button>
+    </div>
 
-    ${moatsHtml}
+    <!-- 3. CONTENIDO TÉCNICO Y FINANCIERO PROFUNDO (COLAPSABLE / OCULTO POR DEFECTO) -->
+    <div class="deep-dive-panel collapsed" id="deep-dive-panel">
+      <div class="deep-dive-header-notice">
+        <span class="tech-badge">ANÁLISIS FINANCIERO CUANTITATIVO</span>
+        <p>Informe con rigor institucional: métricas de balance, valoración DCF/SOTP, desapalancamiento y riesgos de ejecución.</p>
+      </div>
 
-    <h4>Valoración, Modelo y Margen de Seguridad</h4>
-    <p>${a.valuation}</p>
+      <div class="callout-box" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <strong>Resumen de Valoración Fundamental:</strong><br>
+          ${thesis.summary}
+        </div>
+        <a href="${thesis.wordFile}" download class="btn-word-pill" style="font-size: 0.85rem; padding: 8px 14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Descargar Informe Completo Word (.docx)
+        </a>
+      </div>
 
-    ${chartsHtml}
+      <h4>El Pitch: Riesgo Percibido vs. Realidad Fundamental</h4>
+      <p>${a.pitch}</p>
 
-    ${risksHtml}
+      ${moatsHtml}
+
+      <h4>Valoración, Modelo y Margen de Seguridad</h4>
+      <p>${a.valuation}</p>
+
+      ${chartsHtml}
+
+      ${risksHtml}
+    </div>
   `;
 
   // Mostrar modal
@@ -456,11 +559,37 @@ function openThesisModal(thesisId) {
   document.body.style.overflow = 'hidden';
 }
 
+/**
+ * Alterna el estado colapsado / desplegado de la sección técnica profunda
+ */
+function toggleDeepDive() {
+  const panel = document.getElementById('deep-dive-panel');
+  const btn = document.getElementById('btn-toggle-deep-dive');
+  const label = document.getElementById('deep-dive-btn-label');
+  if (!panel || !btn) return;
+
+  const isCollapsed = panel.classList.contains('collapsed');
+  if (isCollapsed) {
+    panel.classList.remove('collapsed');
+    btn.classList.add('active');
+    if (label) label.textContent = 'Ocultar';
+    // Scroll suave hacia la sección técnica
+    setTimeout(() => {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 150);
+  } else {
+    panel.classList.add('collapsed');
+    btn.classList.remove('active');
+    if (label) label.textContent = 'Desplegar';
+  }
+}
+
 function closeThesisModal() {
   const modal = document.getElementById('thesis-modal');
   if (modal) {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    currentOpenThesisId = null;
   }
 }
 
@@ -591,4 +720,78 @@ function initScrollReveal() {
 
   elements.forEach(el => observer.observe(el));
 }
+
+/**
+ * 10. Seguimiento de Cotizaciones en Vivo y Recálculo Dinámico de Potencial a Objetivo
+ */
+async function initDynamicQuotes() {
+  async function fetchAndApplyQuotes() {
+    try {
+      const res = await fetch('/.netlify/functions/quotes');
+      if (!res.ok) return;
+      const data = await res.json();
+      if (!data || !data.quotes) return;
+
+      const quotes = data.quotes;
+
+      INVESTOR_DATA.theses.forEach(thesis => {
+        const q = quotes[thesis.symbol];
+        if (q && typeof q.price === 'number') {
+          const livePrice = q.price;
+          thesis.currentPriceNum = livePrice;
+
+          // Formateo según divisa
+          if (thesis.currency === '$') {
+            thesis.currentPrice = `$${livePrice.toFixed(2)}`;
+          } else {
+            thesis.currentPrice = `${livePrice.toFixed(2).replace('.', ',')} €`;
+          }
+
+          // Recalcular % de potencial al precio objetivo si la tesis no está cerrada
+          if (thesis.status !== 'closed' && thesis.targetPriceNum && livePrice > 0) {
+            const calculatedUpside = ((thesis.targetPriceNum - livePrice) / livePrice) * 100;
+            const sign = calculatedUpside >= 0 ? '+' : '';
+            thesis.upside = `${sign}${calculatedUpside.toFixed(2).replace('.', ',')}%`;
+          }
+
+          // Actualizar elementos en las tarjetas del DOM
+          const priceEls = document.querySelectorAll(`[data-ticker="${thesis.symbol}"] .price-val`);
+          priceEls.forEach(el => {
+            el.textContent = thesis.currentPrice;
+          });
+
+          const upsideEls = document.querySelectorAll(`[data-upside-ticker="${thesis.symbol}"]`);
+          upsideEls.forEach(el => {
+            el.textContent = thesis.upside;
+            el.className = `val ${thesis.upside.startsWith('-') ? 'text-danger' : 'text-success'} upside-val`;
+          });
+
+          // Si el modal está abierto con esta tesis, actualizar en caliente
+          if (currentOpenThesisId === thesis.id) {
+            const modalPrice = document.getElementById('modal-current-price');
+            const modalUpside = document.getElementById('modal-return');
+            if (modalPrice) modalPrice.textContent = thesis.currentPrice;
+            if (modalUpside) {
+              modalUpside.textContent = thesis.upside;
+              modalUpside.className = thesis.upside.startsWith('-') ? 'text-danger' : 'text-success';
+            }
+          }
+        }
+      });
+    } catch (err) {
+      console.warn('Live quotes update: manteniendo precios base de data.js', err);
+    }
+  }
+
+  // Ejecución inicial
+  fetchAndApplyQuotes();
+
+  // Actualización periódica cada 2 minutos
+  setInterval(fetchAndApplyQuotes, 120000);
+}
+
+// Exponer funciones globales para interacción HTML nativa
+window.toggleDeepDive = toggleDeepDive;
+window.openThesisModal = openThesisModal;
+window.closeThesisModal = closeThesisModal;
 

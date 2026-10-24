@@ -88,20 +88,31 @@ const INVESTOR_DATA = {
     {
       id: "grenergy-renovables",
       ticker: "BME: GREG",
+      symbol: "GRE.MC",
       company: "Grenergy Renovables",
-      sector: "Energía / Almacenamiento BESS & IPP Híbrido",
+      sector: "Energía / Baterías Gigantes BESS & Parques Solares",
       category: "energia",
       status: "active",
       statusLabel: "COMPRA",
       ratingBadge: "Asimetría Favorable",
       date: "Octubre 2026",
-      currentPrice: "73,60 €",
+      currency: "€",
+      entryPrice: "73,60 €",
+      entryPriceNum: 73.60,
+      currentPrice: "61,30 €",
+      currentPriceNum: 61.30,
       targetPrice: "105,00 € – 110,00 €",
-      upside: "+43% a +50%",
-      horizon: "Medio / Largo Plazo",
+      targetPriceNum: 107.50,
+      upside: "+75,37%",
+      horizon: "Medio / Largo Plazo (2-3 años)",
       coverImage: "assets/img/grenergy-renovables_image1.jpeg",
       wordFile: "documentos/Tesis_GRENERGY-RENOVABLES.docx",
-      summary: "Transición de promotor solar a gestor de infraestructuras de almacenamiento (pipeline de 63 GWh BESS). El mercado castiga el apalancamiento a corto plazo omitiendo que el 65% es Project Finance sin recurso y que los Tollings y baterías desvinculan los flujos de la curva de pato solar.",
+      summary: "Líder en baterías gigantes para almacenar energía solar y venderla de noche cuando la electricidad es más cara. El mercado castiga su deuda reciente, sin ver que son proyectos ya asegurados y autofinanciados con contratos fijos a 15 años.",
+      simplified: {
+        whatTheyDo: "Construye y opera grandes parques de energía solar combinados con sistemas masivos de baterías (BESS) capaces de inyectar luz limpia durante las horas nocturnas en Chile, España y otros mercados.",
+        theOpportunity: "El mercado se asustó por la deuda utilizada para construir estos proyectos. Sin embargo, el 65% de esa deuda no tiene recurso a la empresa matriz (está garantizada solo por los parques) y el 79% de los ingresos futuros ya está vendido por contrato firmado a 15 años.",
+        theTurnaround: "A medida que los megaparques de baterías como Oasis Atacama se conecten y vendan energía en las horas de mayor demanda y precio, los beneficios y el flujo de caja se dispararán hacia el valor real."
+      },
       analysis: {
         pitch: "El mercado penaliza el apalancamiento a corto plazo (4,6x deuda neta/EBITDA LTM) omitiendo que el 65% es Project Finance sin recurso a la matriz (apalancamiento corporativo real de 1,7x). El capex construye ingresos contratados a largo plazo (79% de producción contratada, 6,8 TWh de PPAs firmados por 5.300 M€ a 15 años).",
         moats: [
@@ -110,7 +121,7 @@ const INVESTOR_DATA = {
           "Contratos tipo peaje y derisking regulatorio: Tollings financieros a 10-12 años y mercados de capacidad (UK a 15 años, Polonia a 17 años) con flujos indexados al IPC.",
           "Track record probado de rotación de activos: 73 proyectos rotados desde 2017 a una media de 1,6x EV/IC, autofinanciando el crecimiento sin diluir al accionista."
         ],
-        valuation: "Valoración por Suma de las Partes (SOTP) aplicando múltiplos conservadores de industria madura (D&C a 8-10x, Energía a 10-13x EV/EBITDA). El negocio operativo actual proporciona un suelo de ~50 €/acción. A 73,60 €, el mercado cobra una prima de apenas ~23 € por acción por adquirir íntegramente su pipeline de 63 GWh. Exigiendo un margen de seguridad estricto, el valor intrínseco se sitúa en 105 € - 110 € por acción.",
+        valuation: "Valoración por Suma de las Partes (SOTP) aplicando múltiplos conservadores de industria madura (D&C a 8-10x, Energía a 10-13x EV/EBITDA). El negocio operativo actual proporciona un suelo de ~50 €/acción. Al precio actual, el mercado cobra una prima insignificante por adquirir íntegramente su pipeline de 63 GWh. Exigiendo un margen de seguridad estricto, el valor intrínseco se sitúa en 105 € - 110 € por acción.",
         risks: [
           "Cuellos de botella logísticos o disrupción en la cadena asiática de contenedores de baterías.",
           "Refinanciación de la deuda corporativa (35% restante con bono verde al 5,0%).",
@@ -125,6 +136,7 @@ const INVESTOR_DATA = {
     {
       id: "amper",
       ticker: "BME: AMP",
+      symbol: "AMP.MC",
       company: "Amper, S.A.",
       sector: "Defensa, Seguridad Nacional & Tecnologías de Uso Dual",
       category: "defensa",
@@ -132,22 +144,32 @@ const INVESTOR_DATA = {
       statusLabel: "COMPRA",
       ratingBadge: "Convicción Moderada-Alta",
       date: "17 de julio de 2026",
-      currentPrice: "0,21 €",
-      targetPrice: "0,3024 € (~0,31 €)",
-      upside: "+46%",
+      currency: "€",
+      entryPrice: "4,20 € (0,21 € base)",
+      entryPriceNum: 4.20,
+      currentPrice: "4,46 €",
+      currentPriceNum: 4.46,
+      targetPrice: "6,20 € (0,31 € base)",
+      targetPriceNum: 6.20,
+      upside: "+39,01%",
       horizon: "2026 - 2028",
       coverImage: "assets/img/amper_image1.jpeg",
       wordFile: "documentos/Tesis_AMPER.docx",
-      summary: "Consolidador industrial español mid-cap en defensa y energía (uso dual). Plan estratégico 2026-2028 (>800 M€ ingresos, >130 M€ EBITDA). Adquisición de Teltronic a <9x EBITDA frente a múltiplos europeos de defensa de 17-27x. Modelo DCF conservador que arroja 0,31 €/acción.",
+      summary: "Compañía tecnológica e industrial española en plena transformación hacia defensa militar y telecomunicaciones estratégicas. Tras superar años difíciles, hoy bate récords de pedidos firmados y compra negocios clave a precio de ganga frente a sus rivales europeos.",
+      simplified: {
+        whatTheyDo: "Diseña y fabrica redes de telecomunicaciones seguras para cuerpos policiales, emergencias y defensa nacional, junto con grandes estructuras metálicas para parques de energía eólica marina.",
+        theOpportunity: "Arrastra el castigo bursátil de su reestructuración de hace una década, mientras que sus competidores europeos de defensa se han revalorizado con fuerza y cotizan a valoraciones que triplican a las de Amper.",
+        theTurnaround: "Bajo un nuevo plan estratégico cumplido con rigor, ya tiene asegurada una cartera de pedidos récord de 695 M€ y ha adquirido a precio de liquidación Teltronic, disparando los beneficios del grupo."
+      },
       analysis: {
-        pitch: "Amper cotiza a 0,21 € con el descuento de iliquidez heredado de su reestructuración de 2014, mientras los múltiplos europeos de defensa se han duplicado de 7x a 17x EV/EBITDA. La directiva ha cumplido sus objetivos de 2025 (EBITDA >46 M€ vs >41 M€ objetivo, apalancamiento <3,0x) y ejecuta un M&A muy disciplinado.",
+        pitch: "Amper cotiza con el descuento de iliquidez heredado de su reestructuración de 2014, mientras los múltiplos europeos de defensa se han duplicado de 7x a 17x EV/EBITDA. La directiva ha cumplido sus objetivos de 2025 (EBITDA >46 M€ vs >41 M€ objetivo, apalancamiento <3,0x) y ejecuta un M&A muy disciplinado.",
         moats: [
           "Arbitraje de múltiplos disciplinado: adquisición de Teltronic a <9x EBITDA 2025 cuando pares cotizados (Rheinmetall, Thales) cotizan a 17x-27x.",
           "Cartera de pedidos visible: 695 M€ en cartera, con el 55% de las ventas orgánicas de 2026 ya comprometidas en el primer trimestre.",
           "Posicionamiento único en tecnologías de uso dual: comunicaciones de misión crítica (TETRA/LTE/5G) y estructuras para eólica marina / offshore (Navacel).",
           "Disciplina estricta de apalancamiento: techo autoimpuesto y verificado de DFN/EBITDA por debajo de 3,0x mediante financiación mixta."
         ],
-        valuation: "Modelo DCF propio con WACC del 8,12%, tasa de crecimiento a perpetuidad de 2,5% y múltiplo de salida de 8,5x EV/EBITDA (muy conservador frente al sector). Arroja un Equity Value de 699,5 M€ y un valor intrínseco de 0,31 €/acción (+46% de potencial). Precio máximo de entrada según margen Klarman: ≤0,215 €.",
+        valuation: "Modelo DCF propio con WACC del 8,12%, tasa de crecimiento a perpetuidad de 2,5% y múltiplo de salida de 8,5x EV/EBITDA (muy conservador frente al sector). Arroja un Equity Value de 699,5 M€ y un valor intrínseco objetivo de 6,20 €/acción (+39% de potencial). Precio máximo de entrada según margen Klarman: ≤4,30 €.",
         risks: [
           "Condicionada al cierre definitivo de Teltronic y aprobaciones administrativas.",
           "Riesgo de dilución accionarial por pagos mixtos en adquisiciones.",
@@ -161,29 +183,40 @@ const INVESTOR_DATA = {
     {
       id: "xp-inc",
       ticker: "NASDAQ: XP",
+      symbol: "XP",
       company: "XP Inc.",
-      sector: "Fintech / Plataforma Financiera Tecnológica & Wealth Management",
+      sector: "Fintech / Plataforma de Inversión Tecnológica",
       category: "fintech",
       status: "active",
-      statusLabel: "COMPRA",
+      statusLabel: "COMPRA / MONETIZADA",
       ratingBadge: "Alta Convicción",
       date: "27 de junio de 2026",
-      currentPrice: "16,13 $",
-      targetPrice: "22,00 $ – 25,00 $ (Ponderado 23,63 $)",
-      upside: "+46% a +134%",
+      currency: "$",
+      entryPrice: "16,13 $",
+      entryPriceNum: 16.13,
+      currentPrice: "30,41 $",
+      currentPriceNum: 30.41,
+      targetPrice: "23,63 $ (Objetivo cumplido)",
+      targetPriceNum: 23.63,
+      upside: "+44,52% (Plusvalía Cerrada)",
       horizon: "3 años",
       coverImage: "assets/img/xp-inc_image1.jpeg",
       wordFile: "documentos/Tesis_XP-INC.docx",
-      summary: "Plataforma financiera tecnológica líder en Brasil (4,8M clientes, R$1,53 billones AuM, 18.300 asesores IFAs). Cotiza a solo 7,8x beneficios estimados con ROE del 22,7% y caja neta de R$21.900M. El mercado confunde riesgo divisa (BRL/USD) con deterioro operativo inexistente.",
+      summary: "El mayor bróker y plataforma financiera online de Brasil (el 'Amazon de las inversiones'). Un negocio tecnológico de altísima rentabilidad y sin deuda que se desplomó en bolsa solo por el pánico a la divisa brasileña, creando una oportunidad extraordinaria.",
+      simplified: {
+        whatTheyDo: "Es la plataforma digital líder que conecta a más de 4,8 millones de personas con más de 800 fondos y productos financieros de terceros a través de una red exclusiva de 18.300 asesores.",
+        theOpportunity: "Los fondos internacionales vendieron precipitadamente activos brasileños por la depreciación del real frente al dólar, arrastrando a XP a valoraciones de banco en crisis a pesar de tener una caja neta impecable de 21.900 M de reales.",
+        theTurnaround: "Tesis monetizada con éxito (+44,52% de ganancia realizada en cartera): la combinación de recompras masivas de acciones a precios irrisorios y la fortaleza de sus beneficios catapultó el precio hacia su valor real."
+      },
       analysis: {
-        pitch: "El mercado aplica a XP el descuento de un banco tradicional brasileño, ignorando que es un modelo de plataforma fee-based (take rate del 1,18%) de muy baja intensidad de capital, con caja neta de 21.900M BRL y crecimiento de beneficios de doble dígito. La caída en dólares se debe a la divisa BRL/USD, no a sus fundamentales.",
+        pitch: "El mercado aplicaba a XP el descuento de un banco tradicional brasileño, ignorando que es un modelo de plataforma fee-based (take rate del 1,18%) de muy baja intensidad de capital, con caja neta de 21.900M BRL y crecimiento de beneficios de doble dígito. La caída en dólares se debió a la divisa BRL/USD, no a sus fundamentales.",
         moats: [
           "Red de asesores financieros independientes (18.300 IFAs): red de dos caras altamente cautiva, donde el asesor perdería su cartera de clientes si abandona XP.",
           "Plataforma abierta con más de 800 productos financieros de terceros agregados, frente a la oferta cerrada de los bancos tradicionales (Itaú, Bradesco).",
           "Ventaja de estructura de costes: margen neto del 27,8% sin el lastre de agencias bancarias físicas ni nóminas fijas de sucursales.",
           "Asignación de capital alineada: recompras agresivas (R$1.200M) a 7,8x beneficios y dividendo del ~7,5% yield."
         ],
-        valuation: "Suma de las Partes (SOTP) asignando múltiplos diferenciados por vertical (Retail fee business a 10-14x, Wholesale a 8-10x, sumando caja neta de 21.900M BRL) que arroja un valor por acción de 24,7 $ a 31,3 $ en USD. Valor esperado probabilizado de 23,63 $ (+46%). Margen de seguridad Klarman cumplido (≤17,50 $).",
+        valuation: "Suma de las Partes (SOTP) asignando múltiplos diferenciados por vertical (Retail fee business a 10-14x, Wholesale a 8-10x, sumando caja neta de 21.900M BRL) que arrojaba un valor por acción de 24,7 $ a 31,3 $ en USD. Tesis cerrada y monetizada con una plusvalía neta de +237,30 € en cartera (+44,52%).",
         risks: [
           "Volatilidad macroeconómica y depreciación adicional del tipo de cambio BRL/USD.",
           "Presión de compresión sobre el take rate si desciende sostenidamente por debajo del 1,0%.",
@@ -199,20 +232,31 @@ const INVESTOR_DATA = {
     {
       id: "colonial-sfl",
       ticker: "BME: COL",
+      symbol: "COL.MC",
       company: "Colonial SFL, SOCIMI, S.A.",
-      sector: "Inmobiliario / SOCIMI Oficinas Prime CBD Europa",
+      sector: "Inmobiliario / Oficinas Prime en Centros Financieros",
       category: "inmobiliario",
       status: "active",
       statusLabel: "SOBREPONDERAR",
       ratingBadge: "Deep Value Asimétrico",
       date: "4 de septiembre de 2026",
-      currentPrice: "5,30 €",
+      currency: "€",
+      entryPrice: "5,30 €",
+      entryPriceNum: 5.30,
+      currentPrice: "5,08 €",
+      currentPriceNum: 5.08,
       targetPrice: "6,80 € – 7,50 €",
-      upside: "+28% a +42%",
+      targetPriceNum: 7.15,
+      upside: "+40,75%",
       horizon: "12 - 18 meses",
       coverImage: "assets/img/colonial-sfl_image1.png",
       wordFile: "documentos/Tesis_COLONIAL-SFL.docx",
-      summary: "Cartera de oficinas 100% prime en distritos centrales (París, Madrid, Barcelona, Berlín) cotizando con un descuento del 45% sobre NAV (EPRA NTA de 9,70 €). Crecimiento like-for-like del +4%, release spreads de doble dígito y fuerte demanda de tecnológicas e IA (30% de nueva contratación).",
+      summary: "Dueña de los edificios de oficinas más prestigiosos en los centros neurálgicos de París, Madrid y Barcelona. Con sus inmuebles casi al 100% de ocupación y alquileres subiendo con el IPC, sus acciones cotizan con un descuento del 45% respecto a su valor real auditado.",
+      simplified: {
+        whatTheyDo: "Es una sociedad inmobiliaria (SOCIMI) propietaria de torres de oficinas de máxima categoría ubicadas exclusivamente en las mejores calles y distritos financieros de París, Madrid y Barcelona.",
+        theOpportunity: "El miedo indiscriminado al teletrabajo hizo que la bolsa castigara a todas las oficinas por igual. Sin embargo, las grandes empresas están abandonando los polígonos lejanos para mudarse justo a los edificios céntricos y modernos de Colonial.",
+        theTurnaround: "Los edificios están al 97% de ocupación y los contratos se están renovando con subidas de precios de hasta el +18% en París. A medida que el Banco Central Europeo baje los tipos de interés, la acción cerrará su enorme brecha con el valor real de sus propiedades."
+      },
       analysis: {
         pitch: "El mercado aplica a Colonial una prima de riesgo generalista de 'oficinas periféricas', ignorando que su cartera es 100% prime CBD en ubicaciones con escasez estructural de oferta. Sus fundamentales operativos mejoran trimestre a trimestre y el test de estrés demuestra que el valor de los activos tendría que desplomarse un 26,6% adicional para romper covenants.",
         moats: [
@@ -221,7 +265,7 @@ const INVESTOR_DATA = {
           "Poder de fijación de precios (Pricing Power): release spreads del +7% a nivel de grupo (+18% en París, renovaciones hasta +26%).",
           "Asignación de capital pro-accionista: desinversiones cerradas por encima de tasación (350 M€ con prima), recompras al 45% de descuento sobre NTA y dividendo creciente (~6%)."
         ],
-        valuation: "EPRA NTA auditado de 9,70 €/acción frente a 5,30 € de cotización. Descuento del 45% en la parte alta de su rango histórico. Rango objetivo razonable de 6,80 € - 7,50 € (+28% a +42% de potencial) a medida que el BCE consolide bajadas de tipos y se valide el suelo de tasaciones.",
+        valuation: "EPRA NTA auditado de 9,70 €/acción frente a ~5,08 € de cotización. Descuento del ~48% en la parte alta de su rango histórico. Rango objetivo razonable de 6,80 € - 7,50 € (+40,75% de potencial) a medida que el BCE consolide bajadas de tipos y se valide el suelo de tasaciones.",
         risks: [
           "Diferencial entre el coste de la nueva deuda emitida (bono verde al 3,875%) y el coste medio histórico (1,99%).",
           "Riesgo de ejecución en la nueva expansión en el CBD de Berlín.",
@@ -235,6 +279,7 @@ const INVESTOR_DATA = {
     {
       id: "douglas-ag",
       ticker: "XETRA: DOU",
+      symbol: "DOU.DE",
       company: "Douglas AG",
       sector: "Consumo / Retail Especializado Belleza Premium",
       category: "consumo",
@@ -242,24 +287,34 @@ const INVESTOR_DATA = {
       statusLabel: "COMPRA",
       ratingBadge: "Alta Convicción / Reversión",
       date: "21 de septiembre de 2026",
-      currentPrice: "7,04 €",
+      currency: "€",
+      entryPrice: "7,04 €",
+      entryPriceNum: 7.04,
+      currentPrice: "7,61 €",
+      currentPriceNum: 7.61,
       targetPrice: "16,08 €",
-      upside: "+128%",
+      targetPriceNum: 16.08,
+      upside: "+111,30%",
       horizon: "2 - 3 años",
       coverImage: "assets/img/douglas-ag_image1.jpeg",
       wordFile: "documentos/Tesis_DOUGLAS-AG.docx",
-      summary: "Líder indiscutible de belleza premium en Europa (23% de cuota, 1.850 tiendas, 64M miembros Beauty Card). Cotiza a múltiplos de derribo (EV/EBITDA ~4x) por dos rebajas de guía y el pico temporal de CapEx (+47%). Genera FCF fuertemente positivo y el DCF arroja 16,08 € (+128%).",
+      summary: "La mayor cadena de perfumerías y belleza premium de Europa (23% de cuota, 1.850 tiendas y 64 millones de socios fidelizados). El mercado la castigó por concentrar un año de fuertes reformas e inversiones, ofreciendo el líder del sector a precio de liquidación.",
+      simplified: {
+        whatTheyDo: "Venta de fragancias, cosmética y productos de cuidado personal premium a través de una red de 1.850 perfumerías en 22 países de Europa y una potente plataforma de comercio electrónico.",
+        theOpportunity: "La acción cayó con fuerza porque la empresa rebajó objetivos a corto plazo tras gastar cifras récord en renovar tiendas y modernizar almacenes robotizados. El mercado confundió este gasto temporal con un problema de clientes.",
+        theTurnaround: "Con las reformas concluidas, ese gasto se frena y la empresa genera más de 240 M€ en caja libre anual. Cotizando a un múltiplo de derribo de apenas 4x EBITDA, tiene un potencial alcista que supera el 100% conforme reduzca deuda."
+      },
       analysis: {
-        pitch: "A 7,04 €, el mercado descuenta casi un escenario de reestructuración o dilución inminente para el líder europeo de cosmética premium. Sin embargo, la realidad operativa es que Douglas sigue generando cientos de millones en Free Cash Flow. El pico de apalancamiento de 2026e (3,32x) se debió a una concentración puntual de CapEx que se normaliza en 2027.",
+        pitch: "A niveles actuales, el mercado descuenta casi un escenario de reestructuración o dilución inminente para el líder europeo de cosmética premium. Sin embargo, la realidad operativa es que Douglas sigue generando cientos de millones en Free Cash Flow. El pico de apalancamiento de 2026e (3,32x) se debió a una concentración puntual de CapEx que se normaliza en 2027.",
         moats: [
           "Liderazgo absoluto de escala: 23% de cuota en el mercado continental europeo (frente al 12% de su principal rival Sephora).",
           "Activo de datos masivo con Beauty Card: más de 64 millones de socios fidelizados con algoritmos de compra y personalización irreplicables para competidores pequeños.",
           "Escala omnicanal: ~1.850 tiendas físicas en 22 países combinadas con una potente plataforma e-commerce.",
           "Generación estructural de caja: FCF proyectado superior a 240 M€ incluso en su año de máximo estrés inversor."
         ],
-        valuation: "Modelo DCF propio con WACC del 9,22%, normalización de CapEx convergiendo a la amortización en el año terminal y múltiplo conservador de salida de 6,5x EV/EBITDA. El valor intrínseco resultante es de 16,08 € por acción (+128% de potencial alcista). Margen de seguridad Klarman del 30% cumplido con holgura (precio óptimo ≤11,26 €).",
+        valuation: "Modelo DCF propio con WACC del 9,22%, normalización de CapEx convergiendo a la amortización en el año terminal y múltiplo conservador de salida de 6,5x EV/EBITDA. El valor intrínseco resultante es de 16,08 € por acción (+111,30% de potencial alcista). Margen de seguridad Klarman del 30% cumplido con holgura (precio óptimo ≤11,26 €).",
         risks: [
-          "Riesgo de una tercera rebaja consecutiva de guía en el cierre del ejercicio fiscal 2026.",
+          "Riesgo de una tercera rebaja consecutiva de guía en el cierre del ejercicio fiscal.",
           "Competencia con el balance de un gigante de lujo (Sephora / LVMH).",
           "Overhang de venta del 54% en manos del fondo de private equity CVC Capital Partners."
         ],
@@ -272,3 +327,4 @@ const INVESTOR_DATA = {
     }
   ]
 };
+
