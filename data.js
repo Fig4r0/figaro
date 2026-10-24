@@ -21,6 +21,7 @@ const INVESTOR_DATA = {
       portfolioReturn: "-1,03%",
       benchmarkReturn: "-2,43%",
       totalValue: "9.903,67 €",
+      initialCapital: "10.000,00 €",
       investedCapital: "9.488,98 € (95,81%)",
       cashWeight: "414,69 € (4,19%)",
       realizedProfit: "+161,55 €",
