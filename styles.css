@@ -160,15 +160,14 @@ body {
 .nav-dropdown-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: var(--radius-sm);
   color: var(--text-main);
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
@@ -180,16 +179,6 @@ body {
   border-color: #bfdbfe;
   color: var(--primary);
   box-shadow: 0 2px 6px rgba(30, 64, 175, 0.08);
-}
-
-.nav-dropdown-btn .dropdown-icon-chevron {
-  transition: transform 0.2s ease;
-  color: var(--text-muted);
-}
-
-.nav-dropdown-btn.active .dropdown-icon-chevron {
-  transform: rotate(180deg);
-  color: var(--primary);
 }
 
 .nav-dropdown-menu {
