@@ -145,6 +145,131 @@ body {
   padding: 0 24px;
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+/* Desplegable de navegación superior izquierda */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.nav-dropdown-btn:hover,
+.nav-dropdown-btn.active {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: var(--primary);
+  box-shadow: 0 2px 6px rgba(30, 64, 175, 0.08);
+}
+
+.nav-dropdown-btn .dropdown-icon-chevron {
+  transition: transform 0.2s ease;
+  color: var(--text-muted);
+}
+
+.nav-dropdown-btn.active .dropdown-icon-chevron {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 260px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.14), 0 6px 14px -3px rgba(15, 23, 42, 0.06);
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 1100;
+  animation: dropdownFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-dropdown-menu.open {
+  display: flex;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background: #f1f5f9;
+  color: var(--primary);
+  transform: translateX(2px);
+}
+
+.dropdown-item-icon {
+  font-size: 1.05rem;
+  width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.dropdown-item-text {
+  flex-grow: 1;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 6px 4px;
+}
+
+.dropdown-item-external {
+  color: var(--primary);
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+
+.dropdown-item-external:hover {
+  background: #dbeafe;
+}
+
 .nav-logo {
   display: flex;
   align-items: center;
@@ -169,7 +294,7 @@ body {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
 }
 
 .nav-links a {
@@ -1806,14 +1931,13 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .nav-links {
     display: none;
   }
+}
 
-  .mobile-menu-btn {
-    display: flex;
-  }
+@media (max-width: 768px) {
 
   .about-vignette-pill {
     flex-direction: column;
@@ -2327,7 +2451,7 @@ body {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
   position: relative;
 }
@@ -2410,7 +2534,7 @@ body {
   font-size: 0.9rem;
   color: var(--text-body);
   line-height: 1.6;
-  margin-bottom: 18px;
+  margin-bottom: 0;
 }
 
 .news-takeaway-box {

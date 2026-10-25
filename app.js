@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initThesesFilterAndSearch();
   initModalEvents();
   initAboutModal();
+  initNavDropdown();
   initMobileMenu();
   initScrollReveal();
   initDynamicQuotes();
@@ -624,7 +625,64 @@ function initModalEvents() {
 }
 
 /**
- * 7. Menú Móvil
+ * 7. Desplegable de Navegación Superior Izquierda
+ */
+function initNavDropdown() {
+  const toggleBtn = document.getElementById('nav-dropdown-toggle');
+  const dropdownMenu = document.getElementById('nav-dropdown-menu');
+  const dropdown = document.getElementById('nav-dropdown');
+
+  if (!toggleBtn || !dropdownMenu) return;
+
+  function toggleDropdown(e) {
+    e.stopPropagation();
+    const isOpen = dropdownMenu.classList.contains('open');
+    if (isOpen) {
+      closeDropdown();
+    } else {
+      openDropdown();
+    }
+  }
+
+  function openDropdown() {
+    dropdownMenu.classList.add('open');
+    toggleBtn.classList.add('active');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeDropdown() {
+    dropdownMenu.classList.remove('open');
+    toggleBtn.classList.remove('active');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  toggleBtn.addEventListener('click', toggleDropdown);
+
+  // Cerrar al hacer clic en cualquier opción del desplegable
+  const items = dropdownMenu.querySelectorAll('.dropdown-item');
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      closeDropdown();
+    });
+  });
+
+  // Cerrar al hacer clic fuera del desplegable
+  document.addEventListener('click', (e) => {
+    if (dropdown && !dropdown.contains(e.target)) {
+      closeDropdown();
+    }
+  });
+
+  // Cerrar con la tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && dropdownMenu.classList.contains('open')) {
+      closeDropdown();
+    }
+  });
+}
+
+/**
+ * 7b. Menú Móvil (compatibilidad retroactiva)
  */
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-menu-toggle');
@@ -814,10 +872,10 @@ function initNewsSection() {
   if (thesesCountEl) thesesCountEl.textContent = thesesNews.length;
   if (macroCountEl) macroCountEl.textContent = macroNews.length;
 
-  let currentTab = 'theses';
+  let currentTab = 'macro';
 
   function renderNews(tab) {
-    const items = tab === 'theses' ? thesesNews : macroNews;
+    const items = tab === 'macro' ? macroNews : thesesNews;
     container.innerHTML = '';
 
     if (items.length === 0) {
@@ -849,14 +907,6 @@ function initNewsSection() {
 
         <h3 class="news-card-title">${item.title}</h3>
         <p class="news-card-summary">${item.summary}</p>
-
-        <div class="news-takeaway-box">
-          <div class="news-takeaway-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            <span>Lectura de Analista (Jaime Danús):</span>
-          </div>
-          <p class="news-takeaway-text">${item.takeaway}</p>
-        </div>
       `;
 
       container.appendChild(card);
@@ -873,8 +923,8 @@ function initNewsSection() {
     });
   });
 
-  // Render inicial
-  renderNews('theses');
+  // Render inicial: Actualidad Económica ('macro')
+  renderNews('macro');
 }
 
 // Exponer funciones globales para interacción HTML nativa
