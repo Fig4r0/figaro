@@ -853,68 +853,78 @@ async function initDynamicQuotes() {
  * 11. Sección de Actualidad & Cobertura de Mercado
  */
 function initNewsSection() {
-  const macroContainer = document.getElementById('macro-cards-container');
-  const thesesContainer = document.getElementById('theses-cards-container');
-  if (!INVESTOR_DATA.marketNews) return;
+  const container = document.getElementById('news-cards-container');
+  const tabs = document.querySelectorAll('.news-tab-btn');
+  const lastUpdatedEl = document.getElementById('news-last-updated-date');
+  const thesesCountEl = document.getElementById('theses-news-count');
+  const macroCountEl = document.getElementById('macro-news-count');
+
+  if (!container || !INVESTOR_DATA.marketNews) return;
 
   const marketNews = INVESTOR_DATA.marketNews;
-  const macroNews = marketNews.macro || [];
+  if (lastUpdatedEl && marketNews.lastUpdated) {
+    lastUpdatedEl.textContent = marketNews.lastUpdated;
+  }
+
   const thesesNews = marketNews.theses || [];
+  const macroNews = marketNews.macro || [];
 
-  function createCard(item, index) {
-    const card = document.createElement('article');
-    card.className = 'news-card';
-    card.style.animation = `tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.05}s both`;
+  if (thesesCountEl) thesesCountEl.textContent = thesesNews.length;
+  if (macroCountEl) macroCountEl.textContent = macroNews.length;
 
-    let badgeClass = 'badge-macro';
-    if (item.badgeType === 'positive') badgeClass = 'badge-positive';
-    else if (item.badgeType === 'neutral') badgeClass = 'badge-neutral';
+  let currentTab = 'macro';
 
-    card.innerHTML = `
-      <div class="news-card-header">
-        <div class="news-header-meta">
-          <span class="news-ticker-pill">${item.ticker}</span>
-          <span class="news-source-meta">${item.source} · ${item.date}</span>
-        </div>
-        <span class="news-status-badge ${badgeClass}">${item.badge}</span>
-      </div>
+  function renderNews(tab) {
+    const items = tab === 'macro' ? macroNews : thesesNews;
+    container.innerHTML = '';
 
-      <h3 class="news-card-title">${item.title}</h3>
-      <p class="news-card-summary">${item.summary}</p>
-    `;
-
-    return card;
-  }
-
-  if (macroContainer) {
-    macroContainer.innerHTML = '';
-    if (macroNews.length === 0) {
-      macroContainer.innerHTML = `
+    if (items.length === 0) {
+      container.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 36px; background: #fff; border-radius: 12px; border: 1px dashed #cbd5e1;">
-          <p style="color: #64748b;">No hay noticias macroeconómicas registradas.</p>
+          <p style="color: #64748b;">No hay noticias registradas en esta categoría.</p>
         </div>
       `;
-    } else {
-      macroNews.forEach((item, index) => {
-        macroContainer.appendChild(createCard(item, index));
-      });
+      return;
     }
+
+    items.forEach((item, index) => {
+      const card = document.createElement('article');
+      card.className = 'news-card';
+      card.style.animation = `tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.05}s both`;
+
+      let badgeClass = 'badge-macro';
+      if (item.badgeType === 'positive') badgeClass = 'badge-positive';
+      else if (item.badgeType === 'neutral') badgeClass = 'badge-neutral';
+
+      card.innerHTML = `
+        <div class="news-card-header">
+          <div class="news-header-meta">
+            <span class="news-ticker-pill">${item.ticker}</span>
+            <span class="news-source-meta">${item.source} · ${item.date}</span>
+          </div>
+          <span class="news-status-badge ${badgeClass}">${item.badge}</span>
+        </div>
+
+        <h3 class="news-card-title">${item.title}</h3>
+        <p class="news-card-summary">${item.summary}</p>
+      `;
+
+      container.appendChild(card);
+    });
   }
 
-  if (thesesContainer) {
-    thesesContainer.innerHTML = '';
-    if (thesesNews.length === 0) {
-      thesesContainer.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 36px; background: #fff; border-radius: 12px; border: 1px dashed #cbd5e1;">
-          <p style="color: #64748b;">No hay noticias de tesis registradas.</p>
-        </div>
-      `;
-    } else {
-      thesesNews.forEach((item, index) => {
-        thesesContainer.appendChild(createCard(item, index));
-      });
-    }
-  }
+  // Pestañas
+  tabs.forEach(tabBtn => {
+    tabBtn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      tabBtn.classList.add('active');
+      currentTab = tabBtn.dataset.tab;
+      renderNews(currentTab);
+    });
+  });
+
+  // Render inicial: Actualidad Económica ('macro')
+  renderNews('macro');
 }
 
 // Exponer funciones globales para interacción HTML nativa
