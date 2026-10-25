@@ -63,6 +63,8 @@
 
       <nav class="nav-links">
         <a href="#tesis">Tesis de Inversión</a>
+        <a href="#track-record">Track Record</a>
+        <a href="#actualidad">Actualidad</a>
         <a href="https://www.linkedin.com/in/jaime-danus-bontempini" target="_blank" rel="noopener noreferrer" class="btn btn-outline-sm" style="display: inline-flex; align-items: center; gap: 6px;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.88 0-1.6.72-1.6 1.6 0 .89.72 1.61 1.6 1.61.89 0 1.61-.72 1.61-1.61 0-.88-.72-1.6-1.61-1.6z"/></svg>
           LinkedIn
@@ -80,6 +82,8 @@
   <!-- Menú Móvil -->
   <div class="mobile-drawer" id="mobile-drawer">
     <a href="#tesis" class="mobile-link">Tesis de Inversión</a>
+    <a href="#track-record" class="mobile-link">Track Record</a>
+    <a href="#actualidad" class="mobile-link">Actualidad</a>
     <a href="https://www.linkedin.com/in/jaime-danus-bontempini" target="_blank" rel="noopener noreferrer" class="mobile-link" style="display: inline-flex; align-items: center; gap: 6px;">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.88 0-1.6.72-1.6 1.6 0 .89.72 1.61 1.6 1.61.89 0 1.61-.72 1.61-1.61 0-.88-.72-1.6-1.61-1.6z"/></svg>
       LinkedIn
@@ -361,6 +365,44 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTUALIDAD & SEGUIMIENTO DE MERCADO -->
+    <section id="actualidad" class="section bg-soft">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Análisis en Continuo</span>
+          <h2 class="section-title">Actualidad & Cobertura de Mercado</h2>
+          <p class="section-subtitle">
+            Seguimiento de hechos relevantes en nuestras tesis de cartera y selección periódica de las claves macroeconómicas más influyentes para el inversor fundamental.
+          </p>
+        </div>
+
+        <!-- Pestañas Interactivas de Noticias -->
+        <div class="news-controls-wrap reveal reveal-delay-1">
+          <div class="news-tabs-nav" id="news-tabs">
+            <button type="button" class="news-tab-btn active" data-tab="theses">
+              <span class="news-tab-icon">🎯</span>
+              <span class="news-tab-text">Cobertura de Nuestras Tesis</span>
+              <span class="news-tab-count" id="theses-news-count">4</span>
+            </button>
+            <button type="button" class="news-tab-btn" data-tab="macro">
+              <span class="news-tab-icon">🌐</span>
+              <span class="news-tab-text">Macroeconomía & Mercados</span>
+              <span class="news-tab-count" id="macro-news-count">3</span>
+            </button>
+          </div>
+          <div class="news-last-updated">
+            <span class="live-dot-pulse"></span>
+            <span>Última revisión: <strong id="news-last-updated-date">24 de octubre de 2026</strong></span>
+          </div>
+        </div>
+
+        <!-- Cuadrícula Dinámica de Noticias -->
+        <div class="news-cards-grid reveal reveal-delay-2" id="news-cards-container">
+          <!-- Renderizado dinámicamente con JavaScript -->
         </div>
       </div>
     </section>

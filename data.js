@@ -325,6 +325,99 @@ const INVESTOR_DATA = {
         ]
       }
     }
-  ]
+  ],
+
+  // 4. Actualidad & Cobertura de Mercado (Barrido de Prensa Financiera & Nuestras Tesis)
+  marketNews: {
+    lastUpdated: "24 de octubre de 2026",
+    theses: [
+      {
+        id: "news-theses-1",
+        date: "24 oct 2026",
+        source: "El Economista / CNMV",
+        ticker: "BME: GRE",
+        company: "Grenergy Renovables",
+        title: "Grenergy asegura 457 M$ de financiación sénior para Oasis Atacama y culmina la venta de la fase Gabriela",
+        summary: "La compañía consolida su posición financiera cerrando un préstamo verde sindicado sin recurso con un consorcio de bancos internacionales (BNP Paribas, Natixis, Société Générale) y completa la venta de la planta Gabriela por 475 M$ a CVC DIF.",
+        takeaway: "Validación clave del modelo 'Develop-to-Sell' y BESS: autofinancia la expansión de baterías de 14,1 GWh sin dilución y reduce el apalancamiento corporativo neto hacia 1,7x.",
+        badge: "Catalizador Positivo",
+        badgeType: "positive"
+      },
+      {
+        id: "news-theses-2",
+        date: "22 oct 2026",
+        source: "Expansión / Defensa",
+        ticker: "BME: AMP",
+        company: "Grupo Amper",
+        title: "Amper dispara su EBITDA un +52,8% y eleva su cartera de pedidos hasta los 676 M€",
+        summary: "Los resultados semestrales reflejan el giro estratégico hacia tecnología y defensa, elevando el margen EBITDA hasta el 19,7% e impulsando nuevas adjudicaciones en los programas navales de las fragatas F-110 de la Armada.",
+        takeaway: "Confirma el éxito del turnaround operativo. La compañía gana visibilidad de caja y se encamina a los objetivos de su Plan Estratégico 2026-2028.",
+        badge: "Catalizador Positivo",
+        badgeType: "positive"
+      },
+      {
+        id: "news-theses-3",
+        date: "19 oct 2026",
+        source: "Cinco Días / Real Estate",
+        ticker: "BME: COL",
+        company: "Inmobiliaria Colonial (SFL)",
+        title: "Colonial alcanza el 94% de ocupación en activos prime y se beneficia de la relajación de tipos del BCE",
+        summary: "Las carteras de oficinas en el distrito central de negocios de París y Madrid registran subidas de rentas comparables de doble dígito. La rebaja de tipos del BCE alivia los costes de financiación y estabiliza el valor de tasación (EPRA NTA).",
+        takeaway: "La alta calidad de los inmuebles prime protege las rentas frente a la inflación y el ciclo de bajada de tipos actúa como catalizador directo para cerrar el descuento sobre NAV.",
+        badge: "Viento de Cola",
+        badgeType: "positive"
+      },
+      {
+        id: "news-theses-4",
+        date: "16 oct 2026",
+        source: "Handelsblatt / Retail",
+        ticker: "FRA: DOU",
+        company: "Douglas AG",
+        title: "Douglas consolida su liderazgo en perfumería europea y anticipa fuerte generación de caja tras el pico de CapEx",
+        summary: "Tras culminar el programa extraordinario de modernización de tiendas y logística robotizada en Alemania y Francia, la firma encamina el ejercicio fiscal hacia una generación de Free Cash Flow superior a los 240 M€.",
+        takeaway: "El fin de las inversiones intensivas libera caja libre para amortizar deuda bruta. Cotizando a múltiplos deprimidos (4x EV/EBITDA), el mercado todavía no ha puesto en precio la inflexión de caja.",
+        badge: "Monitorización Operativa",
+        badgeType: "neutral"
+      }
+    ],
+    macro: [
+      {
+        id: "news-macro-1",
+        date: "24 oct 2026",
+        source: "The Wall Street Journal / BCE",
+        ticker: "Macro / Política Monetaria",
+        company: "Bancos Centrales",
+        title: "El BCE acelera el ciclo de recortes de tipos de interés ante la desaceleración de la inflación en la Eurozona",
+        summary: "El Consejo de Gobierno del Banco Central Europeo confirma nuevas bajadas en la facilidad de depósito para apoyar el crédito y la actividad económica en Europa, mientras la Reserva Federal evalúa el ritmo de aterrizaje suave en EE. UU.",
+        takeaway: "La caída de los tipos libres de riesgo reduce las tasas de descuento (WACC) en los modelos DCF, beneficiando especialmente a compañías con visibilidad de flujos de caja y activos reales como Colonial y utilities.",
+        badge: "Entorno Macro",
+        badgeType: "macro"
+      },
+      {
+        id: "news-macro-2",
+        date: "21 oct 2026",
+        source: "Financial Times / Equity Strategy",
+        ticker: "Renta Variable Europea",
+        company: "Mercados Financieros",
+        title: "Divergencia histórica: Las Small y Mid Caps europeas cotizan con el mayor descuento frente a Wall Street en dos décadas",
+        summary: "Los gestores institucionales destacan el atractivo de valoración en compañías medianas europeas con balances saneados, que cotizan con un descuento medio del 35% en PER y EV/EBITDA respecto al S&P 500 estadounidense.",
+        takeaway: "Oportunidad asimétrica para inversores fundamentales: el exceso de concentración en las 'Mega Caps' americanas crea desajustes precio-valor excepcionales en empresas europeas líderes en su nicho.",
+        badge: "Oportunidad Value",
+        badgeType: "positive"
+      },
+      {
+        id: "news-macro-3",
+        date: "18 oct 2026",
+        source: "The Economist",
+        ticker: "Deuda & Crédito",
+        company: "Economía Global",
+        title: "Los diferenciales de crédito corporativo se mantienen estables pese a la volatilidad geopolítica",
+        summary: "El mercado de bonos corporativos con grado de inversión (*investment grade*) absorbe sin sobresaltos las emisiones de deuda corporativa, reflejando solidez en la liquidez bancaria e interés comprador por rentabilidades reales atractivas.",
+        takeaway: "Entorno favorable para compañías que utilizan esquemas de Project Finance o financiación sindicada a largo plazo con bancos internacionales.",
+        badge: "Crédito & Deuda",
+        badgeType: "macro"
+      }
+    ]
+  }
 };
 

@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initScrollReveal();
   initDynamicQuotes();
+  initNewsSection();
 });
 
 /**
@@ -788,6 +789,92 @@ async function initDynamicQuotes() {
 
   // Actualización periódica cada 2 minutos
   setInterval(fetchAndApplyQuotes, 120000);
+}
+
+/**
+ * 11. Sección de Actualidad & Cobertura de Mercado
+ */
+function initNewsSection() {
+  const container = document.getElementById('news-cards-container');
+  const tabs = document.querySelectorAll('.news-tab-btn');
+  const lastUpdatedEl = document.getElementById('news-last-updated-date');
+  const thesesCountEl = document.getElementById('theses-news-count');
+  const macroCountEl = document.getElementById('macro-news-count');
+
+  if (!container || !INVESTOR_DATA.marketNews) return;
+
+  const marketNews = INVESTOR_DATA.marketNews;
+  if (lastUpdatedEl && marketNews.lastUpdated) {
+    lastUpdatedEl.textContent = marketNews.lastUpdated;
+  }
+
+  const thesesNews = marketNews.theses || [];
+  const macroNews = marketNews.macro || [];
+
+  if (thesesCountEl) thesesCountEl.textContent = thesesNews.length;
+  if (macroCountEl) macroCountEl.textContent = macroNews.length;
+
+  let currentTab = 'theses';
+
+  function renderNews(tab) {
+    const items = tab === 'theses' ? thesesNews : macroNews;
+    container.innerHTML = '';
+
+    if (items.length === 0) {
+      container.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 36px; background: #fff; border-radius: 12px; border: 1px dashed #cbd5e1;">
+          <p style="color: #64748b;">No hay noticias registradas en esta categoría.</p>
+        </div>
+      `;
+      return;
+    }
+
+    items.forEach((item, index) => {
+      const card = document.createElement('article');
+      card.className = 'news-card';
+      card.style.animation = `tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.05}s both`;
+
+      let badgeClass = 'badge-macro';
+      if (item.badgeType === 'positive') badgeClass = 'badge-positive';
+      else if (item.badgeType === 'neutral') badgeClass = 'badge-neutral';
+
+      card.innerHTML = `
+        <div class="news-card-header">
+          <div class="news-header-meta">
+            <span class="news-ticker-pill">${item.ticker}</span>
+            <span class="news-source-meta">${item.source} · ${item.date}</span>
+          </div>
+          <span class="news-status-badge ${badgeClass}">${item.badge}</span>
+        </div>
+
+        <h3 class="news-card-title">${item.title}</h3>
+        <p class="news-card-summary">${item.summary}</p>
+
+        <div class="news-takeaway-box">
+          <div class="news-takeaway-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <span>Lectura de Analista (Jaime Danús):</span>
+          </div>
+          <p class="news-takeaway-text">${item.takeaway}</p>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  }
+
+  // Pestañas
+  tabs.forEach(tabBtn => {
+    tabBtn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      tabBtn.classList.add('active');
+      currentTab = tabBtn.dataset.tab;
+      renderNews(currentTab);
+    });
+  });
+
+  // Render inicial
+  renderNews('theses');
 }
 
 // Exponer funciones globales para interacción HTML nativa
