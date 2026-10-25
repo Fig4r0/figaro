@@ -73,27 +73,37 @@
               <span class="dropdown-item-icon">🏠</span>
               <span class="dropdown-item-text">Inicio</span>
             </a>
+            <div class="dropdown-divider-subtle"></div>
             <a href="#filosofia" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">⚖️</span>
               <span class="dropdown-item-text">Filosofía de Inversión</span>
             </a>
+            <div class="dropdown-divider-subtle"></div>
             <a href="#tesis" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">📊</span>
               <span class="dropdown-item-text">Tesis de Inversión</span>
             </a>
+            <div class="dropdown-divider-subtle"></div>
             <a href="#track-record" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">📈</span>
               <span class="dropdown-item-text">Track Record & Cartera</span>
             </a>
-            <a href="#actualidad" class="dropdown-item" role="menuitem">
+            <div class="dropdown-divider-subtle"></div>
+            <a href="#actualidad-economica" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">🌐</span>
-              <span class="dropdown-item-text">Actualidad Económica & Tesis</span>
+              <span class="dropdown-item-text">Actualidad Económica</span>
+            </a>
+            <div class="dropdown-divider-subtle"></div>
+            <a href="#noticias-tesis" class="dropdown-item" role="menuitem">
+              <span class="dropdown-item-icon">📰</span>
+              <span class="dropdown-item-text">Noticias Tesis</span>
             </a>
             <div class="dropdown-divider"></div>
             <a href="#sobre-mi" class="dropdown-item" role="menuitem">
               <span class="dropdown-item-icon">👤</span>
               <span class="dropdown-item-text">Sobre Mí</span>
             </a>
+            <div class="dropdown-divider-subtle"></div>
             <a href="https://www.linkedin.com/in/jaime-danus-bontempini" target="_blank" rel="noopener noreferrer" class="dropdown-item dropdown-item-external" role="menuitem">
               <span class="dropdown-item-icon">💼</span>
               <span class="dropdown-item-text">LinkedIn ↗</span>
@@ -168,6 +178,8 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- FILOSOFÍA DE INVERSIÓN: VALUE + TURNAROUNDS ATRACTIVOS -->
     <section id="filosofia" class="section">
       <div class="container">
@@ -213,6 +225,8 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- TESIS DE INVERSIÓN -->
     <section id="tesis" class="section bg-soft">
       <div class="container">
@@ -246,6 +260,8 @@
         </div>
       </div>
     </section>
+
+    <hr class="section-divider">
 
     <!-- TRACK RECORD -->
     <section id="track-record" class="section">
@@ -394,43 +410,59 @@
       </div>
     </section>
 
-    <!-- ACTUALIDAD ECONÓMICA & NOTICIAS TESIS -->
-    <section id="actualidad" class="section bg-soft">
+    <hr class="section-divider">
+
+    <!-- ANCLA COMPATIBILIDAD -->
+    <div id="actualidad"></div>
+
+    <!-- APARTADO 1: ACTUALIDAD ECONÓMICA -->
+    <section id="actualidad-economica" class="section bg-soft">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">Información de Mercado & Tesis</span>
-          <h2 class="section-title">Actualidad Económica & Noticias de Mercado</h2>
+          <span class="section-tag">Coyuntura Global & Finanzas</span>
+          <h2 class="section-title">Actualidad Económica</h2>
           <p class="section-subtitle">
-            Información periódica sobre la coyuntura macroeconómica, política monetaria y las últimas novedades de nuestras tesis de inversión.
+            Selección periódica de noticias macroeconómicas de referencia (política monetaria de bancos centrales, tipos de interés y valoración internacional) desde fuentes contrastadas como The Wall Street Journal, Financial Times y The Economist.
           </p>
         </div>
 
-        <!-- Pestañas Interactivas de Noticias: Actualidad Económica primero, Noticias Tesis segundo -->
-        <div class="news-controls-wrap reveal reveal-delay-1">
-          <div class="news-tabs-nav" id="news-tabs">
-            <button type="button" class="news-tab-btn active" data-tab="macro">
-              <span class="news-tab-icon">🌐</span>
-              <span class="news-tab-text">Actualidad Económica</span>
-              <span class="news-tab-count" id="macro-news-count">3</span>
-            </button>
-            <button type="button" class="news-tab-btn" data-tab="theses">
-              <span class="news-tab-icon">📈</span>
-              <span class="news-tab-text">Noticias Tesis</span>
-              <span class="news-tab-count" id="theses-news-count">4</span>
-            </button>
-          </div>
-          <div class="news-last-updated">
-            <span class="live-dot-pulse"></span>
-            <span>Última revisión: <strong id="news-last-updated-date">24 de octubre de 2026</strong></span>
-          </div>
-        </div>
-
-        <!-- Cuadrícula Dinámica de Noticias -->
-        <div class="news-cards-grid reveal reveal-delay-2" id="news-cards-container">
+        <!-- Cuadrícula de Noticias Macroeconómicas -->
+        <div class="news-cards-grid reveal reveal-delay-1" id="macro-cards-container">
           <!-- Renderizado dinámicamente con JavaScript -->
         </div>
       </div>
     </section>
+
+    <!-- SEPARADOR DESTACADO ENTRE APARTADOS INDEPENDIENTES -->
+    <div class="apartado-divider-wrap reveal">
+      <div class="apartado-divider-line"></div>
+      <div class="apartado-divider-pill">
+        <span class="divider-dot"></span>
+        <span>Área Independiente · Seguimiento de Tesis Propias</span>
+        <span class="divider-dot"></span>
+      </div>
+      <div class="apartado-divider-line"></div>
+    </div>
+
+    <!-- APARTADO 2: NOTICIAS DE NUESTRAS TESIS -->
+    <section id="noticias-tesis" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Seguimiento Corporativo</span>
+          <h2 class="section-title">Noticias Tesis</h2>
+          <p class="section-subtitle">
+            Hechos relevantes, publicaciones de resultados, adjudicaciones de contratos y novedades estratégicas exclusivas de las compañías analizadas en la web (Grenergy, Amper, Colonial, Douglas).
+          </p>
+        </div>
+
+        <!-- Cuadrícula de Noticias de Nuestras Tesis -->
+        <div class="news-cards-grid reveal reveal-delay-1" id="theses-cards-container">
+          <!-- Renderizado dinámicamente con JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
 
     <!-- VIÑETA INTERACTIVA COMPACTA: SOBRE MÍ -->
     <section class="vignette-section" id="sobre-mi">
@@ -457,6 +489,8 @@
         </div>
       </div>
     </section>
+
+    <hr class="section-divider">
 
     <!-- CONTACTO EXCLUSIVO LINKEDIN -->
     <section id="contacto" class="section">
