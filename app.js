@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initProfileData();
+  initTickerTape();
   initTrackRecordChart();
   initTrackTabs();
   renderTrackRecordTables();
@@ -781,7 +782,60 @@ function initScrollReveal() {
 }
 
 /**
- * 10. Seguimiento de Cotizaciones en Vivo y Recálculo Dinámico de Potencial a Objetivo
+ * 10. Ticker de Cotizaciones de Mercado e Índices en Tiempo Real
+ */
+function initTickerTape() {
+  const track = document.getElementById('ticker-track');
+  if (!track || !INVESTOR_DATA.marketTicker) return;
+
+  const itemsHtml = INVESTOR_DATA.marketTicker.map(item => {
+    let badgeClass = 'badge-index';
+    if (item.type === 'thesis') {
+      badgeClass = (item.badge && (item.badge.includes('CERRADA') || item.badge.includes('MONETIZADA'))) ? 'badge-closed' : 'badge-thesis';
+    }
+    const chgClass = item.isPositive ? 'chg-up' : 'chg-down';
+    const arrow = item.isPositive ? '▲' : '▼';
+    const isThesis = item.type === 'thesis';
+
+    const innerContent = `
+      <span class="ticker-item-badge ${badgeClass}">${item.badge}</span>
+      <span class="ticker-item-name">${item.name}</span>
+      <span class="ticker-item-price" data-ticker-price="${item.symbol}">${item.price}</span>
+      <span class="ticker-item-chg ${chgClass}" data-ticker-chg="${item.symbol}">
+        <span class="ticker-arrow">${arrow}</span>
+        <span class="ticker-val">${item.changePct}</span>
+      </span>
+    `;
+
+    if (isThesis) {
+      return `
+        <div class="ticker-item is-thesis" data-symbol="${item.symbol}">
+          <a href="#tesis" class="ticker-item-link" title="Explorar tesis de inversión de ${item.name}">
+            ${innerContent}
+          </a>
+          <span class="ticker-item-separator">/</span>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="ticker-item is-index" data-symbol="${item.symbol}">
+          <span class="ticker-item-inner">
+            ${innerContent}
+          </span>
+          <span class="ticker-item-separator">/</span>
+        </div>
+      `;
+    }
+  }).join('');
+
+  track.innerHTML = `
+    <div class="ticker-content" id="ticker-content-primary">${itemsHtml}</div>
+    <div class="ticker-content" id="ticker-content-clone" aria-hidden="true">${itemsHtml}</div>
+  `;
+}
+
+/**
+ * 11. Seguimiento de Cotizaciones en Vivo y Recálculo Dinámico de Potencial a Objetivo
  */
 async function initDynamicQuotes() {
   async function fetchAndApplyQuotes() {
@@ -793,6 +847,7 @@ async function initDynamicQuotes() {
 
       const quotes = data.quotes;
 
+      // 1. Actualización de las Tesis en Tarjetas y Modales
       INVESTOR_DATA.theses.forEach(thesis => {
         const q = quotes[thesis.symbol];
         if (q && typeof q.price === 'number') {
@@ -837,6 +892,50 @@ async function initDynamicQuotes() {
           }
         }
       });
+
+      // 2. Actualización de Cotizaciones e Índices en la Cinta Superior (Ticker Tape)
+      if (INVESTOR_DATA.marketTicker) {
+        INVESTOR_DATA.marketTicker.forEach(item => {
+          const q = quotes[item.symbol];
+          if (q && typeof q.price === 'number') {
+            const livePrice = q.price;
+            item.priceNum = livePrice;
+
+            // Formatear precio
+            let formattedPrice = '';
+            if (item.currency === '$') {
+              formattedPrice = `$${livePrice.toFixed(2)}`;
+            } else if (item.currency === '€') {
+              formattedPrice = `${livePrice.toFixed(2).replace('.', ',')} €`;
+            } else {
+              // Puntos de índice con separador de miles
+              formattedPrice = `${new Intl.NumberFormat('es-ES', { minimumFractionDigits: 1, maximumFractionDigits: 2 }).format(livePrice)} pts`;
+            }
+            item.price = formattedPrice;
+
+            // Formatear variación porcentual
+            const chg = typeof q.changePct === 'number' ? q.changePct : 0;
+            const isPos = chg >= 0;
+            item.isPositive = isPos;
+            const sign = isPos ? '+' : '';
+            const chgStr = `${sign}${chg.toFixed(2).replace('.', ',')}%`;
+            item.changePct = chgStr;
+
+            // Actualizar precio en el ticker DOM
+            const priceEls = document.querySelectorAll(`[data-ticker-price="${item.symbol}"]`);
+            priceEls.forEach(el => {
+              el.textContent = formattedPrice;
+            });
+
+            // Actualizar variación y color en el ticker DOM
+            const chgEls = document.querySelectorAll(`[data-ticker-chg="${item.symbol}"]`);
+            chgEls.forEach(el => {
+              el.className = `ticker-item-chg ${isPos ? 'chg-up' : 'chg-down'}`;
+              el.innerHTML = `<span class="ticker-arrow">${isPos ? '▲' : '▼'}</span><span class="ticker-val">${chgStr}</span>`;
+            });
+          }
+        });
+      }
     } catch (err) {
       console.warn('Live quotes update: manteniendo precios base de data.js', err);
     }

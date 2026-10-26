@@ -411,6 +411,123 @@ const INVESTOR_DATA = {
         badgeType: "neutral"
       }
     ]
-  }
+  },
+
+  // 5. Ticker de Cotizaciones de Mercado & Tesis en Vivo (Fallback Base)
+  marketTicker: [
+    {
+      id: "ibex35",
+      symbol: "^IBEX",
+      name: "IBEX 35",
+      type: "index",
+      badge: "ÍNDICE",
+      price: "11.854,20 pts",
+      priceNum: 11854.20,
+      changePct: "+0,35%",
+      isPositive: true,
+      currency: "pts"
+    },
+    {
+      id: "sp500",
+      symbol: "^GSPC",
+      name: "S&P 500",
+      type: "index",
+      badge: "ÍNDICE",
+      price: "5.815,03 pts",
+      priceNum: 5815.03,
+      changePct: "+0,90%",
+      isPositive: true,
+      currency: "pts"
+    },
+    {
+      id: "stoxx50",
+      symbol: "^STOXX50E",
+      name: "Euro Stoxx 50",
+      type: "index",
+      badge: "ÍNDICE",
+      price: "4.943,22 pts",
+      priceNum: 4943.22,
+      changePct: "+1,03%",
+      isPositive: true,
+      currency: "pts"
+    },
+    {
+      id: "nasdaq100",
+      symbol: "^NDX",
+      name: "Nasdaq 100",
+      type: "index",
+      badge: "ÍNDICE",
+      price: "20.368,40 pts",
+      priceNum: 20368.40,
+      changePct: "+1,46%",
+      isPositive: true,
+      currency: "pts"
+    },
+    {
+      id: "grenergy",
+      symbol: "GRE.MC",
+      name: "Grenergy ($GRE)",
+      type: "thesis",
+      badge: "TESIS",
+      thesisId: "grenergy",
+      price: "61,70 €",
+      priceNum: 61.70,
+      changePct: "+0,65%",
+      isPositive: true,
+      currency: "€"
+    },
+    {
+      id: "amper",
+      symbol: "AMP.MC",
+      name: "Amper ($AMP)",
+      type: "thesis",
+      badge: "TESIS",
+      thesisId: "amper",
+      price: "4,49 €",
+      priceNum: 4.49,
+      changePct: "+0,56%",
+      isPositive: true,
+      currency: "€"
+    },
+    {
+      id: "colonial",
+      symbol: "COL.MC",
+      name: "Colonial ($COL)",
+      type: "thesis",
+      badge: "TESIS",
+      thesisId: "colonial",
+      price: "5,13 €",
+      priceNum: 5.13,
+      changePct: "+0,98%",
+      isPositive: true,
+      currency: "€"
+    },
+    {
+      id: "douglas",
+      symbol: "DOU.DE",
+      name: "Douglas ($DOU)",
+      type: "thesis",
+      badge: "TESIS",
+      thesisId: "douglas",
+      price: "7,73 €",
+      priceNum: 7.73,
+      changePct: "+1,58%",
+      isPositive: true,
+      currency: "€"
+    },
+    {
+      id: "xp",
+      symbol: "XP",
+      name: "XP Inc. ($XP)",
+      type: "thesis",
+      badge: "TESIS MONETIZADA",
+      thesisId: "xp-inc",
+      price: "$15,36",
+      priceNum: 15.36,
+      changePct: "+0,48%",
+      isPositive: true,
+      currency: "$"
+    }
+  ]
 };
 

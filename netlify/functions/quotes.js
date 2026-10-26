@@ -4,13 +4,13 @@
  */
 
 exports.handler = async function(event, context) {
-  const tickers = ['GRE.MC', 'AMP.MC', 'XP', 'COL.MC', 'DOU.DE'];
+  const tickers = ['^IBEX', '^GSPC', '^STOXX50E', '^NDX', 'GRE.MC', 'AMP.MC', 'COL.MC', 'DOU.DE', 'XP'];
   const quotes = {};
 
   await Promise.all(
     tickers.map(async (ticker) => {
       try {
-        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1d`;
+        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?interval=1d&range=1d`;
         const res = await fetch(url, {
           headers: {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
