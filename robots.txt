@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jaimedanus.netlify.app/sitemap.xml
+Sitemap: https://jaimedanus.com/sitemap.xml
