@@ -17,27 +17,27 @@ const INVESTOR_DATA = {
 
   // 2. Track Record Real (Auditado en Rankia / MyPortfolio — Octubre 2026)
   trackRecord: {
-    rankiaPublicUrl: "https://myportfolio.rankia.com/portfolios/public/64ae6d6b-8717-4959-add8-2eddeb9287eb",
+    rankiaPublicUrl: "https://myportfolio.rankia.com/portfolios/public/64ae6d6b-8717-4959-add8-2eddeb9287eb?cmp=1&metric=twr&tab=posiciones",
     stats: {
-      period: "2 oct 2026 – 24 oct 2026",
-      alpha: "+1,40%", // +140 bps
+      period: "2 oct 2026 – 26 oct 2026",
+      alpha: "+2,45%", // +245 bps
       alphaBenchmark: "Fidelity Europe Fund (con dividendos)",
-      portfolioReturn: "-1,03%",
-      benchmarkReturn: "-2,43%",
-      totalValue: "9.903,67 €",
+      portfolioReturn: "+0,49%",
+      benchmarkReturn: "-1,96%",
+      totalValue: "10.048,99 €",
       initialCapital: "10.000,00 €",
-      investedCapital: "9.488,98 € (95,81%)",
-      cashWeight: "414,69 € (4,19%)",
+      investedCapital: "9.634,30 € (95,87%)",
+      cashWeight: "414,69 € (4,13%)",
       realizedProfit: "+161,55 €",
       bestRealizedTrade: "+44,52% (XP Inc.)",
       openPositionsCount: "14 Posiciones Activas"
     },
     
-    // Evolución de rentabilidad acumulada (%) del 2 al 24 de Octubre de 2026
+    // Evolución de rentabilidad acumulada (%) del 2 al 26 de Octubre de 2026 (Datos Oficiales MyPortfolio Rankia)
     chart: {
-      labels: ["2 oct", "5 oct", "8 oct", "12 oct", "15 oct", "17 oct", "19 oct", "21 oct", "24 oct"],
-      portfolioData: [0.0, 2.1, 0.2, 2.0, 1.1, 2.1, 0.6, 1.3, -1.03],
-      benchmarkData: [0.0, 0.3, -1.8, -1.2, -1.7, -1.1, -1.7, -0.5, -2.43]
+      labels: ["2 oct", "5 oct", "8 oct", "12 oct", "15 oct", "16 oct", "19 oct", "21 oct", "23 oct", "26 oct"],
+      portfolioData: [0.0, 1.05, -0.16, 2.31, 1.39, 2.23, 0.49, 1.33, -1.02, 0.49],
+      benchmarkData: [0.0, 0.06, -1.79, -0.60, -1.13, -1.10, -1.50, -0.50, -2.73, -1.96]
     },
 
     // Posiciones cerradas (Track Record monetizado)
@@ -64,22 +64,22 @@ const INVESTOR_DATA = {
       }
     ],
 
-    // Cartera activa (14 posiciones)
+    // Cartera activa (14 posiciones auditadas en MyPortfolio Rankia)
     openPositions: [
-      { name: "Amper, S.A.", ticker: "AMP.MC", weight: "10,04%", value: "994,58 €", returnPct: "-0,22%", isThesis: true, thesisId: "amper" },
-      { name: "JPMorgan Chase & Co.", ticker: "JPM", weight: "8,96%", value: "887,77 €", returnPct: "+0,23%", isThesis: false },
-      { name: "Grenergy Renovables", ticker: "GRE.MC", weight: "8,75%", value: "866,21 €", returnPct: "-16,16%", isThesis: true, thesisId: "grenergy-renovables" },
-      { name: "Douglas AG", ticker: "DOU.F", weight: "7,33%", value: "725,80 €", returnPct: "+5,96%", isThesis: true, thesisId: "douglas-ag" },
-      { name: "Electrolux AB", ticker: "ELUX-A.ST", weight: "7,25%", value: "718,34 €", returnPct: "+2,62%", isThesis: false },
-      { name: "Wizz Air Holdings", ticker: "WIZZ.L", weight: "6,89%", value: "681,92 €", returnPct: "-8,18%", isThesis: false },
-      { name: "Forvia SE", ticker: "FRVIA.PA", weight: "6,49%", value: "642,31 €", returnPct: "-8,24%", isThesis: false },
-      { name: "Meliá Hotels International", ticker: "MEL.MC", weight: "5,97%", value: "591,20 €", returnPct: "-1,47%", isThesis: false },
-      { name: "Grifols, S.A.", ticker: "GRF.MC", weight: "5,92%", value: "586,69 €", returnPct: "+6,67%", isThesis: false },
-      { name: "Slb N.V.", ticker: "SLB", weight: "5,89%", value: "582,94 €", returnPct: "+9,37%", isThesis: false },
-      { name: "Acciona, S.A.", ticker: "ANA.MC", weight: "5,83%", value: "576,97 €", returnPct: "-3,84%", isThesis: false },
-      { name: "Atalaya Mining Plc", ticker: "ATYM.L", weight: "5,78%", value: "572,68 €", returnPct: "-22,22%", isThesis: false },
-      { name: "Moody's Corporation", ticker: "MCO", weight: "5,43%", value: "537,66 €", returnPct: "+10,05%", isThesis: false },
-      { name: "Colonial SFL SOCIMI", ticker: "COL.MC", weight: "5,29%", value: "523,93 €", returnPct: "+4,79%", isThesis: true, thesisId: "colonial-sfl" }
+      { name: "Amper, S.A.", ticker: "AMP.MC", weight: "10,18%", value: "1.022,79 €", returnPct: "+2,91%", isThesis: true, thesisId: "amper" },
+      { name: "JPMorgan Chase & Co.", ticker: "JPM", weight: "8,92%", value: "896,37 €", returnPct: "+0,50%", isThesis: false },
+      { name: "Grenergy Renovables", ticker: "GRE.MC", weight: "8,89%", value: "893,26 €", returnPct: "-13,29%", isThesis: true, thesisId: "grenergy-renovables" },
+      { name: "Douglas AG", ticker: "DOU.F", weight: "7,18%", value: "721,78 €", returnPct: "+5,69%", isThesis: true, thesisId: "douglas-ag" },
+      { name: "Electrolux AB", ticker: "ELUX-A.ST", weight: "6,93%", value: "696,66 €", returnPct: "-1,67%", isThesis: false },
+      { name: "Wizz Air Holdings", ticker: "WIZZ.L", weight: "6,85%", value: "688,38 €", returnPct: "-8,46%", isThesis: false },
+      { name: "Forvia SE", ticker: "FRVIA.PA", weight: "6,49%", value: "652,37 €", returnPct: "-6,53%", isThesis: false },
+      { name: "Atalaya Mining Plc", ticker: "ATYM.L", weight: "6,06%", value: "608,69 €", returnPct: "-18,36%", isThesis: false },
+      { name: "Grifols, S.A.", ticker: "GRF.MC", weight: "6,05%", value: "608,27 €", returnPct: "+10,92%", isThesis: false },
+      { name: "Meliá Hotels International", ticker: "MEL.MC", weight: "5,96%", value: "599,41 €", returnPct: "+0,20%", isThesis: false },
+      { name: "Acciona, S.A.", ticker: "ANA.MC", weight: "5,91%", value: "594,32 €", returnPct: "-0,66%", isThesis: false },
+      { name: "Slb N.V.", ticker: "SLB", weight: "5,82%", value: "584,47 €", returnPct: "+8,90%", isThesis: false },
+      { name: "Moody's Corporation", ticker: "MCO", weight: "5,37%", value: "539,99 €", returnPct: "+9,76%", isThesis: false },
+      { name: "Colonial SFL SOCIMI", ticker: "COL.MC", weight: "5,25%", value: "527,53 €", returnPct: "+5,82%", isThesis: true, thesisId: "colonial-sfl" }
     ]
   },
 
