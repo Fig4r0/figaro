@@ -329,25 +329,25 @@ const INVESTOR_DATA = {
 
   // 4. Actualidad & Cobertura de Mercado (Actualidad Económica & Noticias Tesis)
   marketNews: {
-    lastUpdated: "24 de octubre de 2026",
+    lastUpdated: "30 de octubre de 2026",
     macro: [
       {
         id: "news-macro-1",
-        date: "24 oct 2026",
-        source: "The Wall Street Journal / BCE",
+        date: "30 oct 2026",
+        source: "Financial Times / Eurostat",
         ticker: "Macroeconomía",
-        company: "Bancos Centrales",
-        title: "El BCE acelera el ciclo de recortes de tipos de interés ante la desaceleración de la inflación en la Eurozona",
-        summary: "El Consejo de Gobierno del Banco Central Europeo confirma nuevas bajadas en la facilidad de depósito para apoyar el crédito y la actividad económica en Europa, mientras la Reserva Federal evalúa el ritmo de aterrizaje suave en EE. UU.",
-        badge: "Política Monetaria",
-        badgeType: "macro"
+        company: "Zona Euro & BCE",
+        title: "El PIB de la Eurozona bate previsiones al crecer un +0,4% en el 3T mientras la desinflación afianza nuevas bajadas de tipos",
+        summary: "Las economías periféricas como España (+0,8%) y Francia lideran el crecimiento europeo, superando las estimaciones del consenso. El mercado descuenta una nueva rebaja de 25 puntos básicos del BCE en diciembre para consolidar la reactivación del crédito corporativo.",
+        badge: "Crecimiento & Tipos",
+        badgeType: "positive"
       },
       {
         id: "news-macro-2",
-        date: "21 oct 2026",
-        source: "Financial Times / Estrategia",
+        date: "29 oct 2026",
+        source: "Bloomberg / Estrategia",
         ticker: "Renta Variable",
-        company: "Mercados Financieros",
+        company: "Small & Mid Caps Europeas",
         title: "Divergencia histórica: Las Small y Mid Caps europeas cotizan con el mayor descuento frente a Wall Street en dos décadas",
         summary: "Los gestores institucionales destacan el atractivo de valoración en compañías medianas europeas con balances saneados, que cotizan con un descuento medio del 35% en PER y EV/EBITDA respecto al S&P 500 estadounidense.",
         badge: "Mercados Europeos",
@@ -355,58 +355,58 @@ const INVESTOR_DATA = {
       },
       {
         id: "news-macro-3",
-        date: "18 oct 2026",
-        source: "The Economist",
-        ticker: "Crédito & Bonos",
+        date: "28 oct 2026",
+        source: "Reuters / Industria UE",
+        ticker: "Defensa & Energía",
         company: "Economía Global",
-        title: "Los diferenciales de crédito corporativo se mantienen estables pese a la volatilidad geopolítica",
-        summary: "El mercado de bonos corporativos con grado de inversión (investment grade) absorbe sin sobresaltos las emisiones de deuda corporativa, reflejando solidez en la liquidez bancaria e interés comprador por rentabilidades reales atractivas.",
-        badge: "Renta Fija",
+        title: "Los presupuestos de defensa y almacenamiento de energía en Europa se consolidan como motores de contratación hasta 2030",
+        summary: "La Comisión Europea y los estados miembros aceleran subastas de capacidad de red, sistemas BESS de baterías y programas de rearme militar, blindando la visibilidad de cartera para contratistas clave.",
+        badge: "Gasto Estructural",
         badgeType: "macro"
       }
     ],
     theses: [
       {
         id: "news-theses-1",
-        date: "24 oct 2026",
+        date: "30 oct 2026",
         source: "El Economista / CNMV",
         ticker: "BME: GRE",
         company: "Grenergy Renovables",
-        title: "Grenergy asegura 457 M$ de financiación sénior para Oasis Atacama y culmina la venta de la fase Gabriela",
-        summary: "La compañía consolida su posición financiera cerrando un préstamo verde sindicado sin recurso con un consorcio de bancos internacionales (BNP Paribas, Natixis, Société Générale) y completa la venta de la planta Gabriela por 475 M$ a CVC DIF.",
-        badge: "Financiación & Ventas",
+        title: "Grenergy acelera la conexión de Oasis Atacama y afianza su pipeline de almacenamiento con contratos PPA nocturnos a 15 años",
+        summary: "La compañía consolida el despliegue del mayor complejo de almacenamiento BESS del mundo (63 GWh), monetizando el arbitraje de la curva solar nocturna y asegurando flujos de caja predecibles libres de recurso a la matriz corporativa.",
+        badge: "Almacenamiento BESS",
         badgeType: "positive"
       },
       {
         id: "news-theses-2",
-        date: "22 oct 2026",
+        date: "29 oct 2026",
         source: "Expansión / Defensa",
         ticker: "BME: AMP",
         company: "Grupo Amper",
-        title: "Amper dispara su EBITDA un +52,8% y eleva su cartera de pedidos hasta los 676 M€",
-        summary: "Los resultados semestrales reflejan el giro estratégico hacia tecnología y defensa, elevando el margen EBITDA hasta el 19,7% e impulsando nuevas adjudicaciones en los programas navales de las fragatas F-110 de la Armada.",
-        badge: "Resultados & Contratos",
+        title: "Amper eleva su cartera de pedidos hasta los 715 M€ impulsada por programas de defensa y telecomunicaciones críticas",
+        summary: "La acelerada integración de Teltronic y el incremento de adjudicaciones en comunicaciones tácticas de emergencia y defensa naval impulsan la visibilidad de ingresos para 2026-2028, con el margen EBITDA alcanzando el 19,7%.",
+        badge: "Cartera Récord",
         badgeType: "positive"
       },
       {
         id: "news-theses-3",
-        date: "19 oct 2026",
+        date: "28 oct 2026",
         source: "Cinco Días / Real Estate",
         ticker: "BME: COL",
         company: "Inmobiliaria Colonial (SFL)",
-        title: "Colonial alcanza el 94% de ocupación en activos prime y se beneficia de la relajación de tipos del BCE",
-        summary: "Las carteras de oficinas en el distrito central de negocios de París y Madrid registran subidas de rentas comparables de doble dígito. La rebaja de tipos del BCE alivia los costes de financiación y estabiliza el valor de tasación (EPRA NTA).",
+        title: "Colonial alcanza el 97% de ocupación en activos prime y se beneficia de la relajación de tipos del BCE",
+        summary: "Las carteras de oficinas en el distrito central de negocios (CBD) de París y Madrid registran subidas de rentas de doble dígito en renovaciones (+12% a +18%), consolidando un flujo de dividendos creciente.",
         badge: "Inmobiliario Prime",
         badgeType: "positive"
       },
       {
         id: "news-theses-4",
-        date: "16 oct 2026",
+        date: "27 oct 2026",
         source: "Handelsblatt / Retail",
         ticker: "FRA: DOU",
         company: "Douglas AG",
-        title: "Douglas consolida su liderazgo en perfumería europea y anticipa fuerte generación de caja tras el pico de CapEx",
-        summary: "Tras culminar el programa extraordinario de modernización de tiendas y logística robotizada en Alemania y Francia, la firma encamina el ejercicio fiscal hacia una generación de Free Cash Flow superior a los 240 M€.",
+        title: "Douglas culmina su plan de modernización logística y anticipa fuerte generación de caja tras el pico de CapEx",
+        summary: "Tras culminar el programa extraordinario de modernización de tiendas y almacenes robotizados en Alemania y Francia, la firma encamina el ejercicio fiscal hacia una generación de Free Cash Flow superior a los 240 M€.",
         badge: "Flujo de Caja",
         badgeType: "neutral"
       }
@@ -421,10 +421,10 @@ const INVESTOR_DATA = {
       name: "IBEX 35",
       type: "index",
       badge: "ÍNDICE",
-      price: "19.160,60 pts",
-      priceNum: 19160.60,
-      changePct: "+0,67%",
-      isPositive: true,
+      price: "18.757,10 pts",
+      priceNum: 18757.10,
+      changePct: "-0,53%",
+      isPositive: false,
       currency: "pts"
     },
     {
@@ -433,10 +433,10 @@ const INVESTOR_DATA = {
       name: "S&P 500",
       type: "index",
       badge: "ÍNDICE",
-      price: "7.717,29 pts",
-      priceNum: 7717.29,
-      changePct: "+0,53%",
-      isPositive: true,
+      price: "7.720,39 pts",
+      priceNum: 7720.39,
+      changePct: "-0,31%",
+      isPositive: false,
       currency: "pts"
     },
     {
@@ -445,10 +445,10 @@ const INVESTOR_DATA = {
       name: "Euro Stoxx 50",
       type: "index",
       badge: "ÍNDICE",
-      price: "6.164,69 pts",
-      priceNum: 6164.69,
-      changePct: "+0,79%",
-      isPositive: true,
+      price: "6.155,91 pts",
+      priceNum: 6155.91,
+      changePct: "-0,82%",
+      isPositive: false,
       currency: "pts"
     },
     {
@@ -457,10 +457,10 @@ const INVESTOR_DATA = {
       name: "Nasdaq 100",
       type: "index",
       badge: "ÍNDICE",
-      price: "29.619,68 pts",
-      priceNum: 29619.68,
-      changePct: "+1,18%",
-      isPositive: true,
+      price: "29.402,51 pts",
+      priceNum: 29402.51,
+      changePct: "-1,38%",
+      isPositive: false,
       currency: "pts"
     },
     {
@@ -522,9 +522,9 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS MONETIZADA",
       thesisId: "xp-inc",
-      price: "$16,22",
-      priceNum: 16.22,
-      changePct: "+3,25%",
+      price: "$15,05",
+      priceNum: 15.05,
+      changePct: "+44,52% (Monetizada)",
       isPositive: true,
       currency: "$"
     }
