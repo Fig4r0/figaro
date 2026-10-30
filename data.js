@@ -19,25 +19,25 @@ const INVESTOR_DATA = {
   trackRecord: {
     rankiaPublicUrl: "https://myportfolio.rankia.com/portfolios/public/64ae6d6b-8717-4959-add8-2eddeb9287eb?cmp=1&metric=twr&tab=posiciones",
     stats: {
-      period: "2 oct 2026 – 28 oct 2026",
-      alpha: "+4,40%", // +440 bps vs benchmark
+      period: "2 oct 2026 – 30 oct 2026",
+      alpha: "+3,28%", // +328 bps vs benchmark (-0,33%)
       alphaBenchmark: "Fidelity Europe Fund (con dividendos)",
-      portfolioReturn: "+2,55%",
-      benchmarkReturn: "-1,85%",
-      totalValue: "10.254,56 €",
+      portfolioReturn: "+2,95%",
+      benchmarkReturn: "-0,33%",
+      totalValue: "10.294,56 €",
       initialCapital: "10.000,00 €",
-      investedCapital: "9.809,22 € (95,94%)",
-      cashWeight: "414,69 € (4,06%)",
+      investedCapital: "9.813,76 € (95,95%)",
+      cashWeight: "414,69 € (4,05%)",
       realizedProfit: "+161,55 €",
       bestRealizedTrade: "+44,52% (XP Inc.)",
       openPositionsCount: "14 Posiciones Activas"
     },
     
-    // Evolución de rentabilidad acumulada (%) del 2 al 28 de Octubre de 2026 (Datos Oficiales MyPortfolio Rankia)
+    // Evolución de rentabilidad acumulada (%) del 2 al 30 de Octubre de 2026 (Datos Oficiales MyPortfolio Rankia)
     chart: {
-      labels: ["2 oct", "5 oct", "8 oct", "12 oct", "15 oct", "16 oct", "19 oct", "21 oct", "23 oct", "26 oct", "28 oct"],
-      portfolioData: [0.0, 1.05, -0.16, 2.31, 1.39, 2.23, 0.49, 1.33, -1.02, 0.48, 2.55],
-      benchmarkData: [0.0, 0.06, -1.79, -0.60, -1.13, -1.10, -1.50, -0.50, -2.73, -1.96, -1.85]
+      labels: ["2 oct", "5 oct", "8 oct", "12 oct", "15 oct", "16 oct", "19 oct", "21 oct", "23 oct", "26 oct", "28 oct", "30 oct"],
+      portfolioData: [0.0, 1.06, -0.09, 2.30, 1.27, 2.25, 0.67, 1.39, -1.07, 0.34, 1.78, 2.95],
+      benchmarkData: [0.0, 0.06, -1.79, -0.60, -1.13, -1.10, -1.50, -0.50, -2.73, -1.96, -1.85, -0.33]
     },
 
     // Posiciones cerradas (Track Record monetizado)
@@ -64,22 +64,22 @@ const INVESTOR_DATA = {
       }
     ],
 
-    // Cartera activa (14 posiciones auditadas en MyPortfolio Rankia a 28 de octubre de 2026)
+    // Cartera activa (14 posiciones auditadas en MyPortfolio Rankia a 30 de octubre de 2026)
     openPositions: [
-      { name: "Amper, S.A.", ticker: "AMP.MC", weight: "10,02%", value: "1.024,69 €", returnPct: "+2,80%", isThesis: true, thesisId: "amper" },
-      { name: "Grenergy Renovables", ticker: "GRE.MC", weight: "8,86%", value: "905,78 €", returnPct: "-12,33%", isThesis: true, thesisId: "grenergy-renovables" },
-      { name: "JPMorgan Chase & Co.", ticker: "JPM", weight: "8,85%", value: "905,22 €", returnPct: "+2,20%", isThesis: false },
-      { name: "Electrolux AB", ticker: "ELUX-A.ST", weight: "7,41%", value: "758,02 €", returnPct: "+8,29%", isThesis: false },
-      { name: "Douglas AG", ticker: "DOU.F", weight: "7,12%", value: "727,70 €", returnPct: "+6,24%", isThesis: true, thesisId: "douglas-ag" },
-      { name: "Wizz Air Holdings", ticker: "WIZZ.L", weight: "6,93%", value: "708,37 €", returnPct: "-4,62%", isThesis: false },
-      { name: "Forvia SE", ticker: "FRVIA.PA", weight: "6,78%", value: "693,29 €", returnPct: "-0,96%", isThesis: false },
-      { name: "Atalaya Mining Plc", ticker: "ATYM.L", weight: "6,21%", value: "634,60 €", returnPct: "-13,81%", isThesis: false },
-      { name: "Grifols, S.A.", ticker: "GRF.MC", weight: "5,97%", value: "610,05 €", returnPct: "+10,92%", isThesis: false },
-      { name: "Meliá Hotels International", ticker: "MEL.MC", weight: "5,90%", value: "602,93 €", returnPct: "+0,49%", isThesis: false },
-      { name: "Slb N.V.", ticker: "SLB", weight: "5,85%", value: "598,23 €", returnPct: "+12,24%", isThesis: false },
-      { name: "Acciona, S.A.", ticker: "ANA.MC", weight: "5,69%", value: "582,02 €", returnPct: "-3,00%", isThesis: false },
-      { name: "Moody's Corporation", ticker: "MCO", weight: "5,19%", value: "530,78 €", returnPct: "+8,64%", isThesis: false },
-      { name: "Colonial SFL SOCIMI", ticker: "COL.MC", weight: "5,16%", value: "527,54 €", returnPct: "+5,51%", isThesis: true, thesisId: "colonial-sfl" }
+      { name: "Amper, S.A.", ticker: "AMP.MC", weight: "10,27%", value: "1.050,33 €", returnPct: "+5,37%", isThesis: true, thesisId: "amper" },
+      { name: "JPMorgan Chase & Co.", ticker: "JPM", weight: "8,99%", value: "919,94 €", returnPct: "+3,86%", isThesis: false },
+      { name: "Grenergy Renovables", ticker: "GRE.MC", weight: "8,88%", value: "908,60 €", returnPct: "-12,06%", isThesis: true, thesisId: "grenergy-renovables" },
+      { name: "Electrolux AB", ticker: "ELUX-A.ST", weight: "7,45%", value: "762,52 €", returnPct: "+8,93%", isThesis: false },
+      { name: "Douglas AG", ticker: "DOU.F", weight: "7,04%", value: "720,10 €", returnPct: "+5,13%", isThesis: true, thesisId: "douglas-ag" },
+      { name: "Wizz Air Holdings", ticker: "WIZZ.L", weight: "6,96%", value: "711,43 €", returnPct: "-4,21%", isThesis: false },
+      { name: "Forvia SE", ticker: "FRVIA.PA", weight: "6,64%", value: "679,38 €", returnPct: "-2,95%", isThesis: false },
+      { name: "Grifols, S.A.", ticker: "GRF.MC", weight: "6,10%", value: "623,90 €", returnPct: "+13,44%", isThesis: false },
+      { name: "Meliá Hotels International", ticker: "MEL.MC", weight: "5,96%", value: "609,38 €", returnPct: "+1,56%", isThesis: false },
+      { name: "Atalaya Mining Plc", ticker: "ATYM.L", weight: "5,84%", value: "597,42 €", returnPct: "-18,86%", isThesis: false },
+      { name: "Slb N.V.", ticker: "SLB", weight: "5,78%", value: "591,20 €", returnPct: "+10,92%", isThesis: false },
+      { name: "Acciona, S.A.", ticker: "ANA.MC", weight: "5,60%", value: "572,47 €", returnPct: "-4,59%", isThesis: false },
+      { name: "Moody's Corporation", ticker: "MCO", weight: "5,32%", value: "543,67 €", returnPct: "+11,28%", isThesis: false },
+      { name: "Colonial SFL SOCIMI", ticker: "COL.MC", weight: "5,12%", value: "523,41 €", returnPct: "+4,68%", isThesis: true, thesisId: "colonial-sfl" }
     ]
   },
 
@@ -99,11 +99,11 @@ const INVESTOR_DATA = {
       currency: "€",
       entryPrice: "73,60 €",
       entryPriceNum: 73.60,
-      currentPrice: "64,10 €",
-      currentPriceNum: 64.10,
+      currentPrice: "64,30 €",
+      currentPriceNum: 64.30,
       targetPrice: "105,00 € – 110,00 €",
       targetPriceNum: 107.50,
-      upside: "+67,71%",
+      upside: "+67,19%",
       horizon: "Medio / Largo Plazo (2-3 años)",
       coverImage: "assets/img/grenergy-renovables_image1.jpeg",
       wordFile: "documentos/Tesis_GRENERGY-RENOVABLES.docx",
@@ -147,11 +147,11 @@ const INVESTOR_DATA = {
       currency: "€",
       entryPrice: "4,20 € (0,21 € base)",
       entryPriceNum: 4.20,
-      currentPrice: "4,60 €",
-      currentPriceNum: 4.60,
+      currentPrice: "4,71 €",
+      currentPriceNum: 4.71,
       targetPrice: "6,20 € (0,31 € base)",
       targetPriceNum: 6.20,
-      upside: "+34,78%",
+      upside: "+31,63%",
       horizon: "2026 - 2028",
       coverImage: "assets/img/amper_image1.jpeg",
       wordFile: "documentos/Tesis_AMPER.docx",
@@ -243,11 +243,11 @@ const INVESTOR_DATA = {
       currency: "€",
       entryPrice: "5,30 €",
       entryPriceNum: 5.30,
-      currentPrice: "5,12 €",
-      currentPriceNum: 5.12,
+      currentPrice: "5,08 €",
+      currentPriceNum: 5.08,
       targetPrice: "6,80 € – 7,50 €",
       targetPriceNum: 7.15,
-      upside: "+39,65%",
+      upside: "+40,75%",
       horizon: "12 - 18 meses",
       coverImage: "assets/img/colonial-sfl_image1.png",
       wordFile: "documentos/Tesis_COLONIAL-SFL.docx",
@@ -290,11 +290,11 @@ const INVESTOR_DATA = {
       currency: "€",
       entryPrice: "7,04 €",
       entryPriceNum: 7.04,
-      currentPrice: "7,66 €",
-      currentPriceNum: 7.66,
+      currentPrice: "7,58 €",
+      currentPriceNum: 7.58,
       targetPrice: "16,08 €",
       targetPriceNum: 16.08,
-      upside: "+109,92%",
+      upside: "+112,14%",
       horizon: "2 - 3 años",
       coverImage: "assets/img/douglas-ag_image1.jpeg",
       wordFile: "documentos/Tesis_DOUGLAS-AG.docx",
@@ -470,9 +470,9 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS",
       thesisId: "grenergy",
-      price: "64,10 €",
-      priceNum: 64.10,
-      changePct: "-2,29%",
+      price: "64,30 €",
+      priceNum: 64.30,
+      changePct: "-3,16%",
       isPositive: false,
       currency: "€"
     },
@@ -483,10 +483,10 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS",
       thesisId: "amper",
-      price: "4,60 €",
-      priceNum: 4.60,
-      changePct: "-1,18%",
-      isPositive: false,
+      price: "4,71 €",
+      priceNum: 4.71,
+      changePct: "+0,96%",
+      isPositive: true,
       currency: "€"
     },
     {
@@ -496,9 +496,9 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS",
       thesisId: "colonial",
-      price: "5,12 €",
-      priceNum: 5.12,
-      changePct: "-0,58%",
+      price: "5,08 €",
+      priceNum: 5.08,
+      changePct: "-0,49%",
       isPositive: false,
       currency: "€"
     },
@@ -509,10 +509,10 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS",
       thesisId: "douglas",
-      price: "7,66 €",
-      priceNum: 7.66,
-      changePct: "0,00%",
-      isPositive: true,
+      price: "7,58 €",
+      priceNum: 7.58,
+      changePct: "-0,39%",
+      isPositive: false,
       currency: "€"
     },
     {
