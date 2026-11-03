@@ -84,7 +84,7 @@ function initTrackRecordChart() {
           pointHoverRadius: 6
         },
         {
-          label: 'Fidelity Europe Fund (con dividendos)',
+          label: (INVESTOR_DATA.trackRecord.stats.alphaBenchmark || 'Vanguard S&P 500 ETF (con dividendos)'),
           data: chartData.benchmarkData,
           borderColor: '#64748b',
           backgroundColor: 'transparent',
