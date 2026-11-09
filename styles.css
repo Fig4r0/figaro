@@ -730,61 +730,46 @@ body {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.hero-card-preview::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, #3b82f6 100%);
+}
+
 .hero-card-preview:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 30px -8px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
 }
 
-.hero-card-cover {
-  width: 100%;
-  height: 190px;
-  position: relative;
-  overflow: hidden;
-  background-color: #0f172a;
-}
-
-.hero-card-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 55%;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.hero-card-preview:hover .hero-card-cover img {
-  transform: scale(1.04);
-}
-
 .hero-cover-tag {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: rgba(15, 23, 42, 0.82);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: #ffffff;
-  font-size: 0.75rem;
+  display: inline-block;
+  font-family: var(--font-mono);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   padding: 4px 12px;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(30, 64, 175, 0.14);
 }
 
 .preview-card-inner {
-  padding: 24px 28px 24px 28px;
+  padding: 26px 28px 24px 28px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .preview-card-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
-  padding-bottom: 16px;
+  gap: 10px;
+  padding-bottom: 18px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -817,9 +802,11 @@ body {
 }
 
 .author-header-meta h3 {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: var(--text-main);
+  margin-bottom: 4px;
 }
 
 .author-header-meta p {
@@ -837,8 +824,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   font-size: 0.9rem;
-  padding: 8px 12px;
+  padding: 10px 12px;
   background-color: var(--bg-secondary);
   border-radius: var(--radius-sm);
 }
