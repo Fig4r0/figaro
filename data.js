@@ -19,25 +19,25 @@ const INVESTOR_DATA = {
   trackRecord: {
     rankiaPublicUrl: "https://myportfolio.rankia.com/portfolios/public/64ae6d6b-8717-4959-add8-2eddeb9287eb?cmp=1&metric=twr&tab=posiciones",
     stats: {
-      period: "2 oct 2026 – 9 nov 2026",
-      alpha: "+10,58%", // +10,6 p.p. vs benchmark (-4,46%)
+      period: "2 oct 2026 – 13 nov 2026",
+      alpha: "+8,87%", // +8,9 p.p. vs benchmark (-2,01%)
       alphaBenchmark: "Vanguard S&P 500 ETF (con dividendos)",
-      portfolioReturn: "+6,12%",
-      benchmarkReturn: "-4,46%",
-      totalValue: "10.738,25 €",
+      portfolioReturn: "+6,86%",
+      benchmarkReturn: "-2,01%",
+      totalValue: "10.686,44 €",
       initialCapital: "10.000,00 €",
-      investedCapital: "10.323,56 € (96,14%)",
-      cashWeight: "414,69 € (3,86%)",
+      investedCapital: "10.191,37 € (96,09%)",
+      cashWeight: "414,69 € (3,91%)",
       realizedProfit: "+161,55 €",
       bestRealizedTrade: "+44,52% (XP Inc.)",
       openPositionsCount: "14 Posiciones Activas"
     },
     
-    // Evolución de rentabilidad acumulada (%) del 2 de Octubre al 9 de Noviembre de 2026 (Datos Oficiales MyPortfolio Rankia)
+    // Evolución de rentabilidad acumulada (%) del 2 de Octubre al 13 de Noviembre de 2026 (Datos Oficiales MyPortfolio Rankia)
     chart: {
-      labels: ["2 oct", "5 oct", "8 oct", "12 oct", "15 oct", "16 oct", "19 oct", "21 oct", "23 oct", "26 oct", "28 oct", "30 oct", "2 nov", "4 nov", "6 nov", "9 nov"],
-      portfolioData: [0.0, 1.06, -0.09, 2.30, 1.27, 2.25, 0.67, 1.39, -1.07, 0.34, 1.78, 2.95, 4.19, 6.75, 5.62, 6.12],
-      benchmarkData: [0.0, 0.06, -1.79, -0.60, -1.13, -1.10, -1.50, -0.50, -2.73, -1.96, -1.85, -0.33, -2.29, -0.45, -4.68, -4.46]
+      labels: ["2 oct", "5 oct", "8 oct", "12 oct", "15 oct", "16 oct", "19 oct", "21 oct", "23 oct", "26 oct", "28 oct", "30 oct", "2 nov", "4 nov", "6 nov", "9 nov", "11 nov", "13 nov"],
+      portfolioData: [0.0, 1.06, -0.09, 2.30, 1.27, 2.25, 0.67, 1.39, -1.07, 0.34, 1.78, 2.95, 4.19, 6.75, 5.62, 6.12, 7.15, 6.86],
+      benchmarkData: [0.0, 0.06, -1.79, -0.60, -1.13, -1.10, -1.50, -0.50, -2.73, -1.96, -1.85, -0.33, -2.29, -0.45, -4.68, -4.46, -2.15, -2.01]
     },
 
     // Posiciones cerradas (Track Record monetizado)
@@ -64,24 +64,23 @@ const INVESTOR_DATA = {
       }
     ],
 
-    // Cartera activa (14 posiciones auditadas en MyPortfolio Rankia a 9 de noviembre de 2026)
+    // Cartera activa (14 posiciones auditadas en MyPortfolio Rankia a 13 de noviembre de 2026)
     openPositions: [
-      { name: "Amper, S.A.", ticker: "AMP.MC", weight: "10,02%", value: "1.075,98 €", returnPct: "+7,94%", isThesis: true, thesisId: "amper" },
-      { name: "Grenergy Renovables", ticker: "GRE.MC", weight: "9,82%", value: "1.054,15 €", returnPct: "+2,03%", isThesis: true, thesisId: "grenergy-renovables" },
-      { name: "JPMorgan Chase & Co.", ticker: "JPM", weight: "8,35%", value: "896,40 €", returnPct: "+1,20%", isThesis: false },
-      { name: "Electrolux AB", ticker: "ELUX-A.ST", weight: "7,71%", value: "828,37 €", returnPct: "+18,34%", isThesis: false },
-      { name: "Wizz Air Holdings", ticker: "WIZZ.L", weight: "7,47%", value: "802,40 €", returnPct: "+8,04%", isThesis: false },
-      { name: "Douglas AG", ticker: "DOU.F", weight: "7,10%", value: "761,90 €", returnPct: "+11,23%", isThesis: true, thesisId: "douglas-ag" },
-      { name: "Forvia SE", ticker: "FRVIA.PA", weight: "6,60%", value: "708,31 €", returnPct: "+1,19%", isThesis: false },
-      { name: "Meliá Hotels International", ticker: "MEL.MC", weight: "6,05%", value: "649,85 €", returnPct: "+8,31%", isThesis: false },
-      { name: "Grifols, S.A.", ticker: "GRF.MC", weight: "5,97%", value: "641,21 €", returnPct: "+16,58%", isThesis: false },
-      { name: "Atalaya Mining Plc", ticker: "ATYM.L", weight: "5,85%", value: "628,40 €", returnPct: "-14,66%", isThesis: false },
-      { name: "Acciona, S.A.", ticker: "ANA.MC", weight: "5,77%", value: "619,66 €", returnPct: "+3,28%", isThesis: false },
-      { name: "Moody's Corporation", ticker: "MCO", weight: "5,24%", value: "562,90 €", returnPct: "+15,22%", isThesis: false },
-      { name: "Slb N.V.", ticker: "SLB", weight: "5,11%", value: "548,96 €", returnPct: "+3,00%", isThesis: false },
-      { name: "Colonial SFL SOCIMI", ticker: "COL.MC", weight: "5,08%", value: "545,07 €", returnPct: "+9,01%", isThesis: true, thesisId: "colonial-sfl" }
-    ]
-  },
+      { name: "Amper, S.A.", ticker: "AMP.MC", weight: "9,95%", value: "1.054,79 €", returnPct: "+5,82%", isThesis: true, thesisId: "amper" },
+      { name: "Grenergy Renovables", ticker: "GRE.MC", weight: "9,03%", value: "958,06 €", returnPct: "-7,27%", isThesis: true, thesisId: "grenergy-renovables" },
+      { name: "JPMorgan Chase & Co.", ticker: "JPM", weight: "8,89%", value: "942,70 €", returnPct: "+6,43%", isThesis: false },
+      { name: "Electrolux AB", ticker: "ELUX-A.ST", weight: "7,83%", value: "830,25 €", returnPct: "+18,61%", isThesis: false },
+      { name: "Wizz Air Holdings", ticker: "WIZZ.L", weight: "7,74%", value: "820,53 €", returnPct: "+10,48%", isThesis: false },
+      { name: "Douglas AG", ticker: "DOU.F", weight: "6,99%", value: "741,00 €", returnPct: "+8,18%", isThesis: true, thesisId: "douglas-ag" },
+      { name: "Forvia SE", ticker: "FRVIA.PA", weight: "6,35%", value: "673,31 €", returnPct: "-3,81%", isThesis: false },
+      { name: "Grifols, S.A.", ticker: "GRF.MC", weight: "6,34%", value: "672,07 €", returnPct: "+22,19%", isThesis: false },
+      { name: "Meliá Hotels International", ticker: "MEL.MC", weight: "6,14%", value: "651,61 €", returnPct: "+8,60%", isThesis: false },
+      { name: "Atalaya Mining Plc", ticker: "ATYM.L", weight: "5,65%", value: "599,40 €", returnPct: "-18,59%", isThesis: false },
+      { name: "Slb N.V.", ticker: "SLB", weight: "5,44%", value: "577,07 €", returnPct: "+8,27%", isThesis: false },
+      { name: "Moody's Corporation", ticker: "MCO", weight: "5,42%", value: "574,36 €", returnPct: "+17,56%", isThesis: false },
+      { name: "Acciona, S.A.", ticker: "ANA.MC", weight: "5,38%", value: "570,22 €", returnPct: "-4,96%", isThesis: false },
+      { name: "Colonial SFL SOCIMI", ticker: "COL.MC", weight: "4,96%", value: "526,01 €", returnPct: "+5,20%", isThesis: true, thesisId: "colonial-sfl" }
+    ]  },
 
   // 3. Catálogo de Tesis de Inversión Reales de Jaime Danús
   theses: [
@@ -99,11 +98,11 @@ const INVESTOR_DATA = {
       currency: "€",
       entryPrice: "73,60 €",
       entryPriceNum: 73.60,
-      currentPrice: "74,60 €",
-      currentPriceNum: 74.60,
+      currentPrice: "67,80 €",
+      currentPriceNum: 67.80,
       targetPrice: "105,00 € – 110,00 €",
       targetPriceNum: 107.50,
-      upside: "+44,10%",
+      upside: "+58,55%",
       horizon: "Medio / Largo Plazo (2-3 años)",
       coverImage: "assets/img/grenergy-renovables_image1.jpeg",
       wordFile: "documentos/Tesis_GRENERGY-RENOVABLES.docx",
@@ -147,11 +146,11 @@ const INVESTOR_DATA = {
       currency: "€",
       entryPrice: "4,20 € (0,21 € base)",
       entryPriceNum: 4.20,
-      currentPrice: "4,83 €",
-      currentPriceNum: 4.83,
+      currentPrice: "4,73 €",
+      currentPriceNum: 4.73,
       targetPrice: "6,20 € (0,31 € base)",
       targetPriceNum: 6.20,
-      upside: "+28,36%",
+      upside: "+31,08%",
       horizon: "2026 - 2028",
       coverImage: "assets/img/amper_image1.jpeg",
       wordFile: "documentos/Tesis_AMPER.docx",
@@ -243,11 +242,11 @@ const INVESTOR_DATA = {
       currency: "€",
       entryPrice: "5,30 €",
       entryPriceNum: 5.30,
-      currentPrice: "5,29 €",
-      currentPriceNum: 5.29,
+      currentPrice: "5,10 €",
+      currentPriceNum: 5.10,
       targetPrice: "6,80 € – 7,50 €",
       targetPriceNum: 7.15,
-      upside: "+35,16%",
+      upside: "+40,20%",
       horizon: "12 - 18 meses",
       coverImage: "assets/img/colonial-sfl_image1.png",
       wordFile: "documentos/Tesis_COLONIAL-SFL.docx",
@@ -290,11 +289,11 @@ const INVESTOR_DATA = {
       currency: "€",
       entryPrice: "7,04 €",
       entryPriceNum: 7.04,
-      currentPrice: "8,02 €",
-      currentPriceNum: 8.02,
+      currentPrice: "7,80 €",
+      currentPriceNum: 7.80,
       targetPrice: "16,08 €",
       targetPriceNum: 16.08,
-      upside: "+100,50%",
+      upside: "+106,15%",
       horizon: "2 - 3 años",
       coverImage: "assets/img/douglas-ag_image1.jpeg",
       wordFile: "documentos/Tesis_DOUGLAS-AG.docx",
@@ -329,91 +328,90 @@ const INVESTOR_DATA = {
 
   // 4. Actualidad & Cobertura de Mercado (Actualidad Económica & Noticias Tesis)
   marketNews: {
-    lastUpdated: "9 de noviembre de 2026",
+    lastUpdated: "13 de noviembre de 2026",
     macro: [
       {
         id: "news-macro-1",
-        date: "9 nov 2026",
+        date: "13 nov 2026",
         source: "Bolsamanía / Expansión",
         ticker: "Bolsas Europeas",
         company: "IBEX 35 & Euro Stoxx 50",
-        title: "El IBEX 35 supera los 19.700 puntos (+1,8%) liderando el rebote europeo tras las turbulencias tecnológicas en Wall Street",
-        summary: "Las plazas europeas protagonizan un sólido rebote este lunes (Euro Stoxx 50 +1,5%) desmarcándose de la volatilidad en semiconductores de EE. UU., impulsadas por renovables, bancos y resultados corporativos resilientes.",
-        badge: "Rebote Europeo",
+        title: "El IBEX 35 conquista la cota histórica de los 20.000 puntos (+1,4%) impulsado por banca e industria",
+        summary: "El selectivo español cierra una semana brillante superando los 20.020 puntos, desmarcándose en Europa junto al Euro Stoxx 50 (6.386 pts) en un clima de rotación de flujos hacia valoraciones atractivas en la eurozona.",
+        badge: "Hito IBEX 20.000",
         badgeType: "positive"
       },
       {
         id: "news-macro-2",
-        date: "9 nov 2026",
+        date: "13 nov 2026",
         source: "Financial Times / Bloomberg",
         ticker: "Wall Street & Macro",
-        company: "Semiconductores & IPC EE. UU.",
-        title: "La rotación hacia el 'Value' europeo gana tracción ante el escrutinio sobre Big Tech y la espera del IPC estadounidense",
-        summary: "Tras el ajuste reciente en tecnología y el foco mediático sobre Nvidia, los flujos institucionales incrementan exposición en compañías de economía real europeas cotizando con amplio descuento fundamental.",
-        badge: "Rotación Value",
+        company: "S&P 500 & Política Monetaria",
+        title: "Wall Street asimila los 7.560 puntos en el S&P 500 con el mercado consolidando las expectativas de tipos de la Fed",
+        summary: "El índice director global avanza con firmeza apoyado en beneficios empresariales sólidos del tercer trimestre, manteniendo la compresión de primas de riesgo en renta variable y favoreciendo activos de calidad.",
+        badge: "Consolidación S&P",
         badgeType: "macro"
       },
       {
         id: "news-macro-3",
-        date: "8 nov 2026",
+        date: "12 nov 2026",
         source: "Reuters / El Economista",
         ticker: "Geopolítica & Energía",
-        company: "Economía Global",
-        title: "El escenario post-electoral en EE. UU. y la tensión energética consolidan el foco en almacenamiento y defensa",
-        summary: "La vigilancia sobre los flujos energéticos en Oriente Medio y los nuevos equilibrios regulatorios refuerzan la demanda estructural en redes de almacenamiento eléctrico (BESS) y contratos europeos de defensa.",
-        badge: "Catalizador Sectorial",
+        company: "Sector Renovables & Baterías",
+        title: "Europa y Latinoamérica aceleran subastas de capacidad BESS para blindar la estabilidad del mix eléctrico",
+        summary: "El despliegue de almacenamiento a gran escala se consolida como prioridad regulatoria clave, multiplicando los incentivos a proyectos hibridados y contratos PPA estructurados a 15 años.",
+        badge: "Impulso BESS",
         badgeType: "positive"
       }
     ],
     theses: [
       {
         id: "news-theses-1",
-        date: "9 nov 2026",
-        source: "Merca2 / Bolsamanía",
-        ticker: "BME: GRE",
-        company: "Grenergy Renovables",
-        title: "Grenergy entra en positivo en cartera (+2,03%) tras escalar hasta los 74,60 € (+2,47% hoy) apoyada por su plan BESS",
-        summary: "El valor consolida una sólida recuperación desde la zona de 64 € tras el renovado interés inversor en almacenamiento eléctrico (Oasis de Atacama) y la ejecución disciplinada de su programa de recompra.",
-        badge: "En Positivo (+2,03%)",
+        date: "13 nov 2026",
+        source: "Industry Talks / Investing",
+        ticker: "BME: AMP",
+        company: "Grupo Amper",
+        title: "Amper consolida los 4,73 € como 1ª posición de la cartera (9,95%) con un valor de 1.054,79 € y +5,82% de rentabilidad",
+        summary: "La compañía tecnológica e industrial mantiene una sólida evolución operativa tras su ampliación de capital, respaldada por una cartera de pedidos récord de 695 M€ en defensa nacional y comunicaciones críticas.",
+        badge: "1ª Posición (9,95%)",
         badgeType: "positive"
       },
       {
         id: "news-theses-2",
-        date: "9 nov 2026",
-        source: "Investing / Expansión",
-        ticker: "BME: COL",
-        company: "Inmobiliaria Colonial (SFL)",
-        title: "Colonial presenta resultados del 3T el próximo 12 de noviembre mientras alcanza los 5,29 € (+9,01% en cartera)",
-        summary: "La SOCIMI publicará sus cuentas del tercer trimestre tras el cierre del jueves 12 de noviembre respaldada por renovaciones de alquiler en oficinas prime (+9%) en París y Madrid y una notable revalorización en cartera.",
-        badge: "Resultados 12 Nov",
+        date: "13 nov 2026",
+        source: "Handelsblatt / Retail",
+        ticker: "FRA: DOU",
+        company: "Douglas AG",
+        title: "Douglas AG cierra en 7,80 € (+0,39% hoy) con un +8,18% acumulado en cartera antes de la campaña de Black Friday y Navidad",
+        summary: "El líder europeo en perfumería premium defiende su rentabilidad latente (+56,05 € acumulados) tras completar su ciclo de inversión en tiendas y almacenes, con la generación de caja libre (FCF) como catalizador clave.",
+        badge: "+8,18% en Cartera",
         badgeType: "positive"
       },
       {
         id: "news-theses-3",
-        date: "9 nov 2026",
-        source: "Industry Talks / Investing",
-        ticker: "BME: AMP",
-        company: "Grupo Amper",
-        title: "Amper consolida los 4,83 € (+1,58% hoy) como primera posición (10,02%) tras reforzar comunicaciones críticas de defensa",
-        summary: "Tras la reciente ampliación de 44 M€ destinada a consolidar participaciones estratégicas en defensa y energía (junto a Nazca y CDTI), la compañía mantiene una rentabilidad latente del +7,94% en cartera.",
-        badge: "1ª Posición (10,02%)",
-        badgeType: "positive"
+        date: "13 nov 2026",
+        source: "Investing / Expansión",
+        ticker: "BME: COL",
+        company: "Inmobiliaria Colonial (SFL)",
+        title: "Colonial cierra en 5,10 € con +25,99 € de ganancia acumulada (+5,20%) respaldada por la ocupación prime del 97%",
+        summary: "Tras presentar sus cuentas del 3T, la SOCIMI reafirma la solidez de sus activos en los centros financieros de París y Madrid, manteniendo un descuento relevante frente a su EPRA NTA auditado de 9,70 €/acción.",
+        badge: "Ocupación 97%",
+        badgeType: "neutral"
       },
       {
         id: "news-theses-4",
-        date: "8 nov 2026",
-        source: "Handelsblatt / Retail",
-        ticker: "FRA: DOU",
-        company: "Douglas AG",
-        title: "Douglas supera la cota de los 8,00 € acumulados con un +11,23% en cartera pese a la prudencia en el consumo europeo",
-        summary: "Aunque el título corrige un -2,08% intradía hasta 8,02 €, acumula más de un +11% de ganancia en cartera respaldado por su estrategia omnicanal y la normalización del CapEx tras finalizar las inversiones logísticas.",
-        badge: "+11,23% en Cartera",
+        date: "13 nov 2026",
+        source: "Merca2 / Bolsamanía",
+        ticker: "BME: GRE",
+        company: "Grenergy Renovables",
+        title: "Grenergy ajusta a 67,80 € (-4,51% hoy) ampliando su potencial de revalorización a objetivo hasta el +58,55%",
+        summary: "La corrección técnica del sector no altera los fundamentales de la compañía, cuyos flujos futuros de almacenamiento BESS (Oasis de Atacama) y rotación histórica de activos a 1,6x EV/IC sustentan la valoración objetiva de 105-110 €.",
+        badge: "Potencial +58,5%",
         badgeType: "neutral"
       }
     ]
   },
 
-  // 5. Ticker de Cotizaciones de Mercado & Tesis en Vivo (Fallback Base)
   marketTicker: [
     {
       id: "ibex35",
@@ -421,9 +419,9 @@ const INVESTOR_DATA = {
       name: "IBEX 35",
       type: "index",
       badge: "ÍNDICE",
-      price: "19.722,60 pts",
-      priceNum: 19722.60,
-      changePct: "+1,82%",
+      price: "20.020,10 pts",
+      priceNum: 20020.10,
+      changePct: "+1,41%",
       isPositive: true,
       currency: "pts"
     },
@@ -433,9 +431,9 @@ const INVESTOR_DATA = {
       name: "S&P 500",
       type: "index",
       badge: "ÍNDICE",
-      price: "7.376,86 pts",
-      priceNum: 7376.86,
-      changePct: "+0,31%",
+      price: "7.561,67 pts",
+      priceNum: 7561.67,
+      changePct: "+2,51%",
       isPositive: true,
       currency: "pts"
     },
@@ -445,9 +443,9 @@ const INVESTOR_DATA = {
       name: "Euro Stoxx 50",
       type: "index",
       badge: "ÍNDICE",
-      price: "6.266,37 pts",
-      priceNum: 6266.37,
-      changePct: "+1,55%",
+      price: "6.386,86 pts",
+      priceNum: 6386.86,
+      changePct: "+1,53%",
       isPositive: true,
       currency: "pts"
     },
@@ -457,9 +455,9 @@ const INVESTOR_DATA = {
       name: "Nasdaq 100",
       type: "index",
       badge: "ÍNDICE",
-      price: "26.989,99 pts",
-      priceNum: 26989.99,
-      changePct: "+1,35%",
+      price: "27.943,74 pts",
+      priceNum: 27943.74,
+      changePct: "+3,53%",
       isPositive: true,
       currency: "pts"
     },
@@ -470,10 +468,10 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS",
       thesisId: "grenergy",
-      price: "74,60 €",
-      priceNum: 74.60,
-      changePct: "+2,47%",
-      isPositive: true,
+      price: "67,80 €",
+      priceNum: 67.80,
+      changePct: "-4,51%",
+      isPositive: false,
       currency: "€"
     },
     {
@@ -483,10 +481,10 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS",
       thesisId: "amper",
-      price: "4,83 €",
-      priceNum: 4.83,
-      changePct: "+1,58%",
-      isPositive: true,
+      price: "4,73 €",
+      priceNum: 4.73,
+      changePct: "-0,73%",
+      isPositive: false,
       currency: "€"
     },
     {
@@ -496,10 +494,10 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS",
       thesisId: "colonial",
-      price: "5,29 €",
-      priceNum: 5.29,
-      changePct: "+0,28%",
-      isPositive: true,
+      price: "5,10 €",
+      priceNum: 5.10,
+      changePct: "-0,58%",
+      isPositive: false,
       currency: "€"
     },
     {
@@ -509,10 +507,10 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS",
       thesisId: "douglas",
-      price: "8,02 €",
-      priceNum: 8.02,
-      changePct: "-2,08%",
-      isPositive: false,
+      price: "7,80 €",
+      priceNum: 7.80,
+      changePct: "+0,39%",
+      isPositive: true,
       currency: "€"
     },
     {
@@ -522,12 +520,11 @@ const INVESTOR_DATA = {
       type: "thesis",
       badge: "TESIS MONETIZADA",
       thesisId: "xp-inc",
-      price: "$15,14",
-      priceNum: 15.14,
+      price: "$15,49",
+      priceNum: 15.49,
       changePct: "+44,52% (Monetizada)",
       isPositive: true,
       currency: "$"
     }
   ]
 };
-
